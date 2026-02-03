@@ -14,6 +14,33 @@
 
 ## PEPEW Trading Bot ⭐ CRITICAL
 
+### ⚠️ IMPORTANT: PEPEW API Trading BLOCKED!
+NonKYC has `apiExcluded: true` for PEPEW/USDT — **API trading is disabled for PEPEW!**
+
+**Workaround:** Switched to SHIB/USDT for live API trading (fully supported).
+
+### SHIB/USDT Trading (Live)
+| Metric | Value |
+|--------|-------|
+| Symbol | SHIB/USDT |
+| Test Result | ✅ API WORKING |
+| Buy Threshold | $0.00000600 |
+| Sell Target | $0.00000720 (+20%) |
+| Position Size | $1-1.50/trade |
+| USDT Balance | $13.73 |
+
+### Daily Scalping Bot
+| Setting | Value |
+|---------|-------|
+| File | daily_scalper.py |
+| Profit Target | +5% |
+| Schedule | 8 AM, 2 PM, 8 PM |
+| Max Daily | 5 trades / $5 |
+
+### Bot Rename
+- **Name:** 🐕 Trading Bot
+- **Username:** @pepew_alert_bot
+
 ### Bot Location
 ```
 /Users/maxwell/.openclaw/workspace/trading_bot/
