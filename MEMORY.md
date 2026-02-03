@@ -121,6 +121,27 @@ cat /Users/maxwell/.openclaw/workspace/trading_bot/data/price_history.csv
 - MiniMax uses API key authentication
 - All trading bot memory imported from chat PDFs on 2026-02-03
 
+## Additional Notes
+
+### Moltbook (Inactive)
+- Profile: https://www.moltbook.com/u/Lassie
+- API registration expired
+- Skill installed but not functional
+- Re-registration needed on different network
+
+### Python Course
+- All 14 lessons completed
+- Saved to `/Users/maxwell/.openclaw/workspace/lessons/`
+- Bonus lessons: API calls, Telegram alerts, web scraping, pandas
+
+### PEPEW Fetcher
+- Uses Playwright-stealth to bypass bot detection
+- Command: `python3 /Users/maxwell/.openclaw/workspace/pepew_price.py`
+
+### Model Question
+- GLM 4.7 doesn't cause memory loss
+- Memory stored in files, not model context
+
 ## Key Dates
 - **2026-01-28:** Portfolio tracking started ($16.14)
 - **2026-02-03:** First OpenClaw session + memory recovery
