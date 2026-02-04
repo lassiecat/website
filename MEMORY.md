@@ -77,26 +77,22 @@ TELEGRAM = {
 - **Name:** 🐕 Trading Bot
 - **Username:** @pepew_alert_bot
 
+## PEPEW Trading Bot ⭐ CRITICAL
+
+### ⚠️ API STATUS: NONKYC API BROKEN
+All API keys returning HTML/302 redirect instead of JSON.
+Auto-fix system created - monitors and alerts when fixed.
+
 ### Quick Commands
 ```bash
+# Check API status
+python3 /Users/maxwell/.openclaw/workspace/trading_bot/api_monitor.py
+
 # Run bot
-cd /Users/maxwell/.openclaw/workspace/trading_bot
-python3 trading_bot.py              # Continuous
-python3 trading_bot.py --once       # Single check
-python3 trading_bot.py --test       # Test mode
-
-# Daily scalper
-python3 daily_scalper.py
-
-# Auto-adjust strategy
-python3 auto_trader.py
-
-# PEPEW price fetch
-python3 pepew_price.py
+cd /Users/maxwell/.openclaw/workspace/trading_bot && python3 trading_bot.py
 
 # View logs
 tail -f data/trading_bot.log
-cat data/price_history.csv
 ```
 
 ### Cron Jobs (Active)
@@ -145,3 +141,27 @@ cat data/price_history.csv
 ## Key Dates
 - **2026-01-28:** Portfolio tracking started ($16.14)
 - **2026-02-03:** First OpenClaw session + memory recovery
+- **2026-02-04:** Auto-systems day (backup, fix, skills)
+
+## Auto-Systems Created
+
+### Auto-Fix System
+Location: `/Users/maxwell/.openclaw/workspace/auto-fix/`
+- Detects problems automatically
+- Alerts BEFORE fixing (asks approval)
+- Learns from solved issues
+
+### Backup System
+Location: `/Users/maxwell/.openclaw/workspace/backup.py`
+- Manual: `python3 /Users/maxell/.openclaw/workspace/backup.py`
+- Auto: Daily at 3 AM via LaunchAgent
+- Location: `~/Desktop/OpenClaw-Backup/`
+- Keeps: Last 7 daily backups
+
+### Skills Installed
+- `/crypto` - Price, portfolio, alerts
+- `/news` - Crypto news from RSS feeds
+- `/problems` - Learn and solve issues
+
+## Daily Reminders
+- **7:57 AM** - Snack time 🍎
