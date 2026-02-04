@@ -14,34 +14,48 @@
 
 ## PEPEW Trading Bot ⭐ CRITICAL
 
-### ⚠️ IMPORTANT: PEPEW API Trading BLOCKED!
-NonKYC has `apiExcluded: true` for PEPEW/USDT — **API trading is disabled for PEPEW!**
-
-**Workaround:** Switched to SHIB/USDT for live API trading (fully supported).
+### API Status: WORKING (Feb 4)
+- NonKYC API v2 migrated - new keys required
+- Basic Auth works: `api_key` + `api_secret` base64 encoded
+- New keys: `fd2199b9e480ae4e6448192f4481e847` / `0251ccfa65d229f273fe9862d0847bfac9efdff7aa5f6fba`
 
 ### Bot Location
 ```
 /Users/maxwell/.openclaw/workspace/trading_bot/
-├── trading_bot.py       # Main bot (LIVE TRADING)
-├── daily_scalper.py     # Quick +5% profit trades
-├── auto_trader.py       # Auto-adjusts strategy daily
-├── pepew_price.py      # PEPEW fetcher (Playwright-stealth)
-├── price_fetcher.py     # Live price fetching
+├── quick_trader.py       # SHIB quick profit trader
+├── pepew_trader.py      # PEPEW quick profit trader
+├── api_monitor.py       # API status monitor
 ├── config.py            # API KEYS HERE
+├── nonkyc_v2.py        # NonKYC v2 API client
 ├── telegram_alerts.py   # Telegram notifications
-├── data_storage.py      # CSV logging & history
 └── data/
     ├── price_history.csv
-    ├── alerts.log
     └── trades.json
 ```
 
-### API Credentials (🔐 SENSITIVE)
+### SHIB Trading Strategy (Quick Profits)
+| Setting | Value |
+|---------|-------|
+| Buy Amount | $1.10 per trade |
+| Sell Targets | +2%, +3%, +5% |
+| Fees | 0.3% (buy 0.2% + sell 0.1%) |
+| Net Profit | ~1.7% to 4.7% |
+| Status | Active |
+
+### PEPEW Trading Strategy (Quick Profits)
+| Setting | Value |
+|---------|-------|
+| Buy Amount | $1.00 per trade |
+| Sell Targets | +2%, +3%, +5% |
+| Min Order | 200,000 PEPEW |
+| Status | Active |
+
+### API Credentials (Latest - Feb 4)
 ```python
-# NonKYC Exchange
 NONKYC = {
-    "api_key": "c677d4108806428c97a89a0e31597029",
-    "api_secret": "7bd6623182d9b7f96eee360cb1d12b700941cb7b",
+    "api_key": "fd2199b9e480ae4e6448192f4481e847",
+    "api_secret": "0251ccfa65d229f273fe9862d0847bfac9efdff7aa5f6fba",
+    "base_url": "https://api.nonkyc.io/api/v2",
     "enabled": True
 }
 
@@ -164,4 +178,37 @@ Location: `/Users/maxwell/.openclaw/workspace/backup.py`
 - `/problems` - Learn and solve issues
 
 ## Daily Reminders
-- **7:57 AM** - Snack time 🍎
+- **7:57 AM** - Snack time 🍎 (tested, disabled)
+
+## Auto-Systems
+
+### Backup System
+- Manual: `python3 /Users/maxwell/.openclaw/workspace/backup.py`
+- Auto: Daily at 3 AM via LaunchAgent
+- Location: `~/Desktop/OpenClaw-Backup/`
+- Keeps: Last 7 daily backups
+
+### Auto-Fix System
+- `/Users/maxwell/.openclaw/workspace/auto-fix/detect_alert.py`
+- Monitors for issues
+- Alerts before fixing
+
+### Skills Installed
+- `/crypto` - Price, portfolio, alerts
+- `/news` - Crypto news from RSS feeds
+- `/problems` - Learn and solve issues
+
+## Crypto Watchlist
+
+| Coin | Symbol | Price | Notes |
+|------|--------|-------|-------|
+| Hedera | HBAR | $0.093 | Enterprise L1, Google/IBM backing |
+| Shiba Inu | SHIB | $0.00000677 | Quick profit trading |
+| PEPEW | PEPEW | $0.00000042 | Quick profit trading |
+
+### Hedera (HBAR) - Added Feb 4
+- Price: $0.0928
+- Market Cap: ~$4B
+- Rank: #30
+- Enterprise governance (Google, IBM, Boeing)
+- Watchlist file: `/Users/maxwell/.openclaw/workspace/crypto_watchlist.md`
