@@ -3,138 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LassieCat (LASY) - Cute KawPoW cryptocurrency with masternode rewards 🐱💕">
-    <title>LassieCat (LASY) 🐱 - Cute KawPoW Coin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="LassieCat (LASY) - KawPoW cryptocurrency with masternode rewards">
+    <title>LassieCat (LASY) - KawPoW Coin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #FF6B9D;
-            --cute-pink: #FF9FF3;
-            --cute-blue: #54a0ff;
-            --cute-green: #1dd1a1;
-            --cute-purple: #5f27cd;
-            --cute-orange: #ff9f43;
-            --dark: #222f3e;
+            --primary: #00d4ff;
+            --secondary: #0099cc;
+            --accent: #00ffa3;
+            --dark: #0a1628;
+            --darker: #050b14;
+            --card-bg: #0f1f35;
+            --card-border: #1a2d4d;
+            --text: #e0e6ed;
+            --text-muted: #8899aa;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Quicksand', sans-serif; background: linear-gradient(180deg, #fff5f8 0%, #fff9e6 100%); color: var(--dark); overflow-x: hidden; }
-        h1, h2, h3 { font-family: 'Fredoka One', cursive; }
+        body { font-family: 'Quicksand', sans-serif; background: linear-gradient(180deg, #0a1628 0%, #0d2137 100%); color: #e0e6ed; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Exo 2', sans-serif; font-weight: 700; }
         
-        nav { position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; box-shadow: 0 4px 20px rgba(255,107,157,0.1); }
-        .logo { display: flex; align-items: center; gap: 10px; font-family: 'Fredoka One', cursive; font-size: 1.5rem; color: var(--primary); }
-        .logo-cat { width: 45px; height: 45px; background: var(--cute-pink); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; animation: bounce 2s infinite; }
-        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-        nav ul { display: flex; list-style: none; gap: 30px; }
-        nav a { text-decoration: none; color: var(--dark); font-weight: 600; transition: color 0.3s; }
+        nav { position: fixed; top: 0; width: 100%; background: rgba(10, 22, 40, 0.95); backdrop-filter: blur(10px); padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid #1a2d4d; }
+        .logo { display: flex; align-items: center; gap: 12px; font-family: 'Exo 2', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; }
+        .logo-cat { width: 42px; height: 42px; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+        nav ul { display: flex; list-style: none; gap: 35px; }
+        nav a { text-decoration: none; color: #8899aa; font-weight: 500; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s; position: relative; }
         nav a:hover { color: var(--primary); }
+        nav a::after { content: ''; position: absolute; bottom: -8px; left: 0; width: 0; height: 2px; background: var(--primary); transition: width 0.3s; }
+        nav a:hover::after { width: 100%; }
         
-        .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 20px 60px; position: relative; overflow: hidden; background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><circle cx=\"10\" cy=\"10\" r=\"3\" fill=\"%23FF9FF3\" opacity=\"0.3\"/><circle cx=\"80\" cy=\"30\" r=\"5\" fill=\"%23feca57\" opacity=\"0.3\"/></svg>'); background-size: 200px; }
-        .hero-cat { width: 200px; height: 200px; background: linear-gradient(135deg, var(--cute-pink), var(--cute-orange)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; box-shadow: 0 20px 60px rgba(255,107,157,0.3); animation: wiggle 3s ease-in-out infinite; }
-        .hero-cat::before { content: '🐱'; font-size: 100px; }
-        @keyframes wiggle { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
-        .hero h1 { font-size: 4rem; color: var(--primary); margin-bottom: 10px; text-shadow: 3px 3px 0 #feca57; }
-        .tagline { background: linear-gradient(135deg, var(--primary), var(--cute-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; }
-        .hero p { font-size: 1.3rem; color: #666; max-width: 600px; margin-bottom: 40px; }
-        .btn { display: inline-block; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s; cursor: pointer; border: none; margin: 10px; }
-        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--cute-purple)); color: white; box-shadow: 0 10px 30px rgba(255,107,157,0.4); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255,107,157,0.5); }
-        .btn-secondary { background: white; color: var(--primary); border: 3px solid var(--primary); }
-        .btn-secondary:hover { background: var(--primary); color: white; }
+        .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 20px 80px; position: relative; background: radial-gradient(ellipse at top, rgba(0, 212, 255, 0.08) 0%, transparent 50%); }
+        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300d4ff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
         
-        section { padding: 80px 20px; }
-        section h2 { text-align: center; font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
-        .section-subtitle { text-align: center; color: #666; max-width: 600px; margin: 0 auto 50px; }
+        .hero-cat { width: 180px; height: 180px; background: linear-gradient(145deg, #0f1f35, #1a2d4d); border: 3px solid var(--primary); border-radius: 30px; display: flex; align-items: center; justify-content: center; margin-bottom: 35px; box-shadow: 0 20px 50px rgba(0, 212, 255, 0.2); position: relative; transition: all 0.4s; }
+        .hero-cat:hover { transform: scale(1.05) translateY(-5px); box-shadow: 0 25px 60px rgba(0, 212, 255, 0.3); }
+        .hero-cat::before { content: '🐱'; font-size: 80px; }
         
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .stat-card { background: linear-gradient(135deg, #fff, #fff5f8); padding: 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 2px solid #ffeeee; transition: all 0.3s; }
-        .stat-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(255,107,157,0.15); }
-        .stat-icon { font-size: 3rem; margin-bottom: 15px; }
-        .stat-card h3 { color: #C44569; font-size: 1rem; margin-bottom: 10px; }
-        .stat-value { font-family: 'Fredoka One', cursive; font-size: 2rem; color: var(--primary); }
-        .stat-label { color: #999; font-size: 0.9rem; }
+        .hero h1 { font-size: 3.5rem; color: white; margin-bottom: 8px; letter-spacing: 4px; text-transform: uppercase; }
+        .hero h1 span { background: linear-gradient(90deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero h2 { font-size: 1.4rem; color: var(--primary); font-weight: 500; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 25px; }
+        .hero p { font-size: 1.1rem; color: #8899aa; max-width: 550px; line-height: 1.7; margin-bottom: 40px; }
         
-        .coinomics-section { background: linear-gradient(180deg, #fff5f8 0%, #fff9e6 100%); }
-        .reward-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
-        .reward-card { background: white; border-radius: 25px; padding: 40px 30px; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.08); transition: all 0.3s; }
-        .reward-card:hover { transform: translateY(-10px); }
-        .reward-card.masternodes { border: 3px solid var(--cute-blue); }
-        .reward-card.miners { border: 3px solid var(--cute-green); }
-        .reward-card.dev { border: 3px solid var(--cute-orange); }
-        .reward-icon { width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 2.5rem; }
-        .masternodes .reward-icon { background: linear-gradient(135deg, var(--cute-blue), #00d2d3); }
-        .miners .reward-icon { background: linear-gradient(135deg, var(--cute-green), #1dd1a1); }
-        .dev .reward-icon { background: linear-gradient(135deg, var(--cute-orange), #ff9f43); }
-        .reward-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
-        .reward-percent { font-family: 'Fredoka One', cursive; font-size: 3rem; color: var(--primary); margin-bottom: 5px; }
-        .reward-amount { font-size: 1.3rem; color: #C44569; font-weight: 600; margin-bottom: 15px; }
-        .reward-card p { color: #666; }
-        .collateral-badge { display: inline-block; background: linear-gradient(135deg, var(--cute-pink), var(--cute-purple)); color: white; padding: 8px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; margin-top: 15px; }
+        .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 35px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s; cursor: pointer; border: none; }
+        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #0a1628; box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0, 212, 255, 0.4); }
+        .btn-secondary { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+        .btn-secondary:hover { background: var(--primary); color: #0a1628; }
         
-        .supply-card { background: linear-gradient(135deg, var(--cute-purple), var(--primary)); color: white; border-radius: 25px; padding: 40px; text-align: center; max-width: 500px; margin: 40px auto 0; }
-        .supply-card h3 { font-size: 1.8rem; margin-bottom: 10px; }
+        .floating { position: absolute; font-size: 24px; opacity: 0.15; animation: float 8s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
         
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
-        .feature-card { background: white; border-radius: 20px; padding: 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.3s; }
-        .feature-card:hover { transform: scale(1.05); }
-        .feature-icon { font-size: 3rem; margin-bottom: 15px; }
-        .feature-card h3 { color: var(--primary); margin-bottom: 10px; }
+        section { padding: 100px 20px; position: relative; }
+        section h2 { text-align: center; font-size: 2.2rem; color: white; margin-bottom: 12px; letter-spacing: 2px; text-transform: uppercase; }
+        .section-subtitle { text-align: center; color: #8899aa; max-width: 600px; margin: 0 auto 50px; font-size: 1rem; }
         
-        .mining-section { background: linear-gradient(180deg, #e8f8f5 0%, #fff 100%); }
-        .mining-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
-        .mining-card { background: white; border-radius: 20px; padding: 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 2px solid #e0f7fa; }
-        .mining-card:hover { border-color: var(--cute-blue); }
-        .mining-card h3 { color: var(--cute-blue); margin: 15px 0 10px; }
+        .stats-section { background: var(--darker); border-top: 1px solid #1a2d4d; border-bottom: 1px solid #1a2d4d; padding: 60px 20px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+        .stat-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 30px 25px; text-align: center; transition: all 0.3s; }
+        .stat-card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0, 212, 255, 0.1); }
+        .stat-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .stat-card h3 { color: #8899aa; font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+        .stat-value { font-family: 'Exo 2', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--primary); }
+        .stat-label { color: #5a6a7a; font-size: 0.8rem; margin-top: 5px; }
         
-        .masternodes-section { background: linear-gradient(180deg, #f3e5f5 0%, #fff 100%); }
-        .mn-info { background: white; border-radius: 25px; padding: 40px; max-width: 600px; margin: 0 auto; box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
-        .mn-info h3 { color: var(--cute-blue); margin-bottom: 20px; text-align: center; }
+        .coinomics-section { background: linear-gradient(180deg, var(--darker) 0%, #0a1628 100%); }
+        .reward-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; max-width: 1100px; margin: 0 auto; }
+        .reward-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 35px 30px; text-align: center; transition: all 0.3s; position: relative; }
+        .reward-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+        .reward-card.masternodes::before { background: linear-gradient(90deg, var(--primary), var(--accent)); }
+        .reward-card.miners::before { background: linear-gradient(90deg, var(--secondary), var(--primary)); }
+        .reward-card.dev::before { background: linear-gradient(90deg, var(--accent), #00ff88); }
+        .reward-card:hover { transform: translateY(-8px); border-color: var(--primary); }
+        .reward-icon { width: 65px; height: 65px; background: rgba(0, 212, 255, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.8rem; }
+        .reward-card h3 { font-size: 1.1rem; color: white; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+        .reward-percent { font-family: 'Exo 2', sans-serif; font-size: 2.8rem; font-weight: 700; color: var(--primary); margin-bottom: 5px; }
+        .reward-amount { font-size: 1.2rem; color: #8899aa; margin-bottom: 15px; }
+        .reward-card p { color: #5a6a7a; font-size: 0.9rem; line-height: 1.6; }
+        .collateral-badge { display: inline-block; background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 255, 163, 0.1)); border: 1px solid var(--primary); color: var(--primary); padding: 10px 22px; border-radius: 6px; font-size: 0.85rem; font-weight: 600; margin-top: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .supply-card { background: linear-gradient(135deg, var(--card-bg), rgba(0, 212, 255, 0.05)); border: 1px solid var(--card-border); border-radius: 12px; padding: 40px; text-align: center; max-width: 500px; margin: 40px auto 0; }
+        .supply-card h3 { font-size: 1.2rem; color: var(--accent); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        .supply-card p { font-family: 'Exo 2', sans-serif; font-size: 2rem; font-weight: 700; color: white; }
+        .supply-note { color: #5a6a7a; font-size: 0.9rem; margin-top: 10px; }
+        
+        .features-section { background: var(--darker); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+        .feature-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 30px; text-align: center; transition: all 0.3s; }
+        .feature-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 18px; }
+        .feature-card h3 { font-size: 1rem; color: white; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .feature-card p { color: #5a6a7a; font-size: 0.9rem; line-height: 1.6; }
+        
+        .mining-section { background: linear-gradient(180deg, #0a1628 0%, var(--darker) 100%); }
+        .mining-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+        .mining-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 28px; text-align: center; }
+        .mining-card:hover { border-color: var(--accent); }
+        .mining-card h3 { color: var(--accent); font-size: 1rem; margin: 15px 0 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .mining-card p { color: #5a6a7a; font-size: 0.85rem; line-height: 1.5; }
+        
+        .masternodes-section { background: var(--darker); border-top: 1px solid #1a2d4d; }
+        .mn-info { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 35px; max-width: 550px; margin: 0 auto; }
+        .mn-info h3 { color: var(--primary); margin-bottom: 22px; text-align: center; text-transform: uppercase; letter-spacing: 2px; }
         .mn-info ul { list-style: none; }
-        .mn-info li { padding: 12px 0; border-bottom: 1px dashed #eee; display: flex; align-items: center; gap: 10px; }
+        .mn-info li { padding: 14px 0; border-bottom: 1px solid #1a2d4d; display: flex; align-items: center; gap: 12px; font-size: 0.95rem; }
         .mn-info li:last-child { border-bottom: none; }
+        .mn-info li strong { color: white; margin-right: 8px; }
+        .mn-reward-box { background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 255, 163, 0.05)); border: 1px solid var(--primary); border-radius: 10px; padding: 25px; text-align: center; margin-top: 30px; }
+        .mn-reward-box p { color: #8899aa; font-size: 0.9rem; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+        .mn-reward-box div { font-family: 'Exo 2', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--primary); }
         
-        .roadmap-section { background: linear-gradient(180deg, #fff8e1 0%, #fff 100%); }
-        .roadmap-timeline { max-width: 800px; margin: 0 auto; }
-        .roadmap-item { display: flex; gap: 30px; margin-bottom: 40px; }
-        .roadmap-marker { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--cute-pink), var(--cute-orange)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
-        .roadmap-item.completed .roadmap-marker { background: linear-gradient(135deg, var(--cute-green), #1dd1a1); }
-        .roadmap-item.current .roadmap-marker { animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
-        .roadmap-content { background: white; border-radius: 20px; padding: 25px; flex-grow: 1; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .roadmap-content h3 { color: var(--primary); margin-bottom: 10px; }
-        .roadmap-content li { padding: 5px 0; color: #666; }
-        .roadmap-content li::before { content: '🐾 '; }
+        .roadmap-section { background: linear-gradient(180deg, var(--darker) 0%, #0a1628 100%); }
+        .roadmap-timeline { max-width: 750px; margin: 0 auto; }
+        .roadmap-item { display: flex; gap: 25px; margin-bottom: 35px; }
+        .roadmap-marker { width: 50px; height: 50px; border-radius: 10px; background: linear-gradient(135deg, var(--card-bg), #1a2d4d); border: 2px solid var(--card-border); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+        .roadmap-item.completed .roadmap-marker { border-color: var(--accent); background: linear-gradient(135deg, rgba(0, 255, 163, 0.2), rgba(0, 212, 255, 0.1)); }
+        .roadmap-item.current .roadmap-marker { border-color: var(--primary); animation: pulse-glow 2s infinite; }
+        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.3); } 50% { box-shadow: 0 0 20px 5px rgba(0, 212, 255, 0.2); } }
+        .roadmap-content { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 25px; flex-grow: 1; }
+        .roadmap-content h3 { color: white; font-size: 1rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
+        .roadmap-content ul { list-style: none; }
+        .roadmap-content li { padding: 6px 0; color: #8899aa; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+        .roadmap-content li::before { content: '▸'; color: var(--primary); }
         
-        .download-section { background: linear-gradient(135deg, var(--primary) 0%, var(--cute-purple) 100%); color: white; }
+        .download-section { background: linear-gradient(135deg, var(--primary) 0%, #006688 100%); }
         .download-section h2 { color: white; }
-        .download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
-        .download-card { background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 25px; padding: 30px; text-align: center; transition: all 0.3s; }
-        .download-card:hover { background: rgba(255,255,255,0.25); transform: translateY(-5px); }
-        .download-icon { font-size: 4rem; margin-bottom: 15px; }
-        .download-card h3 { color: white; margin-bottom: 10px; }
-        .download-status { display: inline-block; background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 15px; font-size: 0.85rem; margin: 10px 0; }
-        .download-card .btn { margin-top: 15px; background: white; color: var(--primary); }
+        .download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+        .download-card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 12px; padding: 30px; text-align: center; transition: all 0.3s; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .download-card:hover { background: rgba(255, 255, 255, 0.15); transform: translateY(-5px); }
+        .download-icon { font-size: 3rem; margin-bottom: 15px; }
+        .download-card h3 { color: white; margin-bottom: 8px; font-size: 1.1rem; }
+        .download-status { display: inline-block; background: rgba(0, 0, 0, 0.2); padding: 6px 15px; border-radius: 20px; font-size: 0.75rem; color: #ccddff; margin: 12px 0; text-transform: uppercase; letter-spacing: 1px; }
+        .download-card .btn { margin-top: 15px; background: white; color: #006688; }
         
-        .community-section { background: linear-gradient(180deg, #e8f5e9 0%, #fff 100%); }
-        .community-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
-        .community-card { background: white; border-radius: 20px; padding: 30px; text-align: center; text-decoration: none; color: var(--dark); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.3s; }
-        .community-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(255,107,157,0.15); }
-        .community-icon { font-size: 3rem; margin-bottom: 15px; }
-        .community-card h3 { color: var(--primary); margin-bottom: 5px; }
+        .cli-section { text-align: center; margin-top: 50px; padding-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        .cli-section h3 { color: white; margin-bottom: 15px; }
+        .code-block { background: rgba(0, 0, 0, 0.3); border-radius: 8px; padding: 18px 25px; display: inline-block; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 0.95rem; color: var(--accent); }
+        .cli-section .btn { background: rgba(0, 0, 0, 0.3); color: white; border: 1px solid rgba(255, 255, 255, 0.2); }
         
-        footer { background: var(--dark); color: white; padding: 50px 20px 30px; }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
-        .footer-brand .logo { color: white; margin-bottom: 15px; }
-        .footer-links h4 { color: var(--cute-pink); margin-bottom: 15px; }
+        .community-section { background: var(--darker); }
+        .community-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+        .community-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 28px; text-align: center; text-decoration: none; transition: all 0.3s; }
+        .community-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+        .community-icon { font-size: 2.5rem; margin-bottom: 12px; }
+        .community-card h3 { color: white; font-size: 1rem; margin-bottom: 5px; }
+        .community-card p { color: #5a6a7a; font-size: 0.85rem; }
+        
+        footer { background: var(--darker); border-top: 1px solid #1a2d4d; padding: 50px 20px 30px; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto; }
+        .footer-brand .logo { margin-bottom: 15px; color: white; }
+        .footer-brand p { color: #5a6a7a; font-size: 0.9rem; line-height: 1.6; }
+        .footer-links h4 { color: var(--primary); font-size: 0.9rem; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 1px; }
         .footer-links ul { list-style: none; }
         .footer-links li { margin-bottom: 10px; }
-        .footer-links a { color: #aaa; text-decoration: none; transition: color 0.3s; }
-        .footer-links a:hover { color: var(--cute-pink); }
-        .footer-bottom { text-align: center; padding-top: 30px; margin-top: 30px; border-top: 1px solid #333; color: #666; }
+        .footer-links a { color: #8899aa; text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--primary); }
+        .footer-bottom { text-align: center; padding-top: 35px; margin-top: 35px; border-top: 1px solid #1a2d4d; color: #5a6a7a; font-size: 0.85rem; }
+        .footer-note { color: var(--primary); margin-top: 8px; font-size: 0.8rem; }
         
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            nav { padding: 15px 20px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero h2 { font-size: 1rem; letter-spacing: 3px; }
+            nav { padding: 12px 20px; }
             nav ul { display: none; }
+            section h2 { font-size: 1.6rem; }
         }
     </style>
 </head>
@@ -154,129 +184,311 @@
     </nav>
     
     <section id="home" class="hero">
-        <h1>LassieCat</h1>
-        <h2><span class="tagline">The Cutest KawPoW Coin 🐱💕</span></h2>
-        <p>GPU mineable cryptocurrency with masternode rewards! 🐱⛏️<br>Fair, fun, and community-driven!</p>
-        <div><a href="#download" class="btn btn-primary">Get Wallet 🐾</a><a href="#coinomics" class="btn btn-secondary">Learn More</a></div>
+        <div class="hero-bg"></div>
+        <div class="floating" style="top: 15%; left: 8%;">▦</div>
+        <div class="floating" style="top: 25%; right: 12%; animation-delay: 1s;">◆</div>
+        <div class="floating" style="bottom: 20%; left: 15%; animation-delay: 2s;">▦</div>
+        <div class="floating" style="bottom: 30%; right: 8%; animation-delay: 3s;">◆</div>
+        
+        <div class="hero-cat"></div>
+        <h1>Lassie<span>Cat</span></h1>
+        <h2>LASY Coin</h2>
+        <p>KawPoW GPU mining with masternode rewards. Fair launch, fixed supply, built to last.</p>
+        <div>
+            <a href="#download" class="btn btn-primary">Get Wallet</a>
+            <a href="#coinomics" class="btn btn-secondary">Learn More</a>
+        </div>
     </section>
     
     <section class="stats-section">
         <div class="stats-grid">
-            <div class="stat-card"><div class="stat-icon">💰</div><h3>Max Supply</h3><div class="stat-value">21 Billion</div><span class="stat-label">Fixed Forever! 🔒</span></div>
-            <div class="stat-card"><div class="stat-icon">⛏️</div><h3>Algorithm</h3><div class="stat-value">KawPoW</div><span class="stat-label">GPU Mineable! 🖥️</span></div>
-            <div class="stat-card"><div class="stat-icon">⏱️</div><h3>Block Time</h3><div class="stat-value">1 Minute</div><span class="stat-label">Fast! ⚡</span></div>
-            <div class="stat-card"><div class="stat-icon">💎</div><h3>Block Reward</h3><div class="stat-value">5,000 LASY</div><span class="stat-label">Per Block! 🎉</span></div>
+            <div class="stat-card">
+                <div class="stat-icon">◆</div>
+                <h3>Max Supply</h3>
+                <div class="stat-value">21 Billion</div>
+                <div class="stat-label">Fixed Cap</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⛏</div>
+                <h3>Algorithm</h3>
+                <div class="stat-value">KawPoW</div>
+                <div class="stat-label">GPU Mining</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">◉</div>
+                <h3>Block Time</h3>
+                <div class="stat-value">1 Minute</div>
+                <div class="stat-label">Fast</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">◆</div>
+                <h3>Block Reward</h3>
+                <div class="stat-value">5,000 LASY</div>
+                <div class="stat-label">Per Block</div>
+            </div>
         </div>
     </section>
     
     <section id="coinomics" class="coinomics-section">
-        <h2>📊 Coinomics</h2>
-        <p class="section-subtitle">How LASY rewards are distributed! 🐾</p>
+        <h2>Coinomics</h2>
+        <p class="section-subtitle">Block reward distribution</p>
         <div class="reward-grid">
             <div class="reward-card masternodes">
-                <div class="reward-icon">🖥️</div><h3>Masternodes</h3><div class="reward-percent">50%</div><div class="reward-amount">2,500 LASY</div><p>Run a node, earn rewards! 🐱</p><div class="collateral-badge">💰 500,000 LASY</div>
+                <div class="reward-icon">◉</div>
+                <h3>Masternodes</h3>
+                <div class="reward-percent">50%</div>
+                <div class="reward-amount">2,500 LASY</div>
+                <p>Network validators and infrastructure</p>
+                <div class="collateral-badge">Collateral: 500,000 LASY</div>
             </div>
             <div class="reward-card miners">
-                <div class="reward-icon">⛏️</div><h3>Miners</h3><div class="reward-percent">45%</div><div class="reward-amount">2,250 LASY</div><p>GPU mining rewards! 🎮</p>
+                <div class="reward-icon">⛏</div>
+                <h3>Miners</h3>
+                <div class="reward-percent">45%</div>
+                <div class="reward-amount">2,250 LASY</div>
+                <p>GPU mining rewards (KawPoW)</p>
             </div>
             <div class="reward-card dev">
-                <div class="reward-icon">🔧</div><h3>Dev Fee</h3><div class="reward-percent">5%</div><div class="reward-amount">250 LASY</div><p>For development! 🚀</p>
+                <div class="reward-icon">◈</div>
+                <h3>Dev Fee</h3>
+                <div class="reward-percent">5%</div>
+                <div class="reward-amount">250 LASY</div>
+                <p>Development fund</p>
             </div>
         </div>
-        <div class="supply-card"><h3>🔒 Fixed Supply</h3><p>21,000,000,000 LASY</p><p style="margin-top:10px;opacity:0.8;">No inflation - purr-fect forever! 🐱✨</p></div>
+        <div class="supply-card">
+            <h3>◆ Fixed Supply</h3>
+            <p>21,000,000,000 LASY</p>
+            <div class="supply-note">No inflation. No halving. Ever.</div>
+        </div>
     </section>
     
     <section id="mining" class="mining-section">
-        <h2>⛏️ GPU Mining</h2>
-        <p class="section-subtitle">Mine LASY with your graphics card! 🖥️💕</p>
+        <h2>GPU Mining</h2>
+        <p class="section-subtitle">Mine LASY with your graphics card</p>
         <div class="mining-cards">
-            <div class="mining-card"><div class="feature-icon">🛡️</div><h3>ASIC Resistant</h3><p>Fair mining for everyone!</p></div>
-            <div class="mining-card"><div class="feature-icon">🎮</div><h3>GPU Friendly</h3><p>Works with NVIDIA & AMD!</p></div>
-            <div class="mining-card"><div class="feature-icon">⚡</div><h3>Fast Blocks</h3><p>1-minute blocks!</p></div>
-            <div class="mining-card"><div class="feature-icon">🌐</div><h3>Universal</h3><p>Mine from anywhere!</p></div>
+            <div class="mining-card">
+                <div class="feature-icon">◈</div>
+                <h3>ASIC Resistant</h3>
+                <p>KawPoW ensures fair mining</p>
+            </div>
+            <div class="mining-card">
+                <div class="feature-icon">◉</div>
+                <h3>GPU Compatible</h3>
+                <p>Works with NVIDIA and AMD</p>
+            </div>
+            <div class="mining-card">
+                <div class="feature-icon">◆</div>
+                <h3>Fast Blocks</h3>
+                <p>1-minute block times</p>
+            </div>
+            <div class="mining-card">
+                <div class="feature-icon">⛏</div>
+                <h3>Universal</h3>
+                <p>Mine from anywhere</p>
+            </div>
         </div>
     </section>
     
     <section id="masternodes" class="masternodes-section">
-        <h2>🖥️ Masternodes</h2>
-        <p class="section-subtitle">Run a node and earn 50% of rewards! 🐾</p>
+        <h2>Masternodes</h2>
+        <p class="section-subtitle">Run a masternode and earn 50%</p>
         <div class="mn-info">
-            <h3>📋 Requirements</h3>
+            <h3>Requirements</h3>
             <ul>
-                <li>💰 <strong>Collateral:</strong> 500,000 LASY</li>
-                <li>🖥️ <strong>Server:</strong> 2GB RAM, 20GB SSD</li>
-                <li>🌐 <strong>Network:</strong> Static IP required</li>
-                <li>⏰ <strong>Uptime:</strong> 99% recommended</li>
+                <li><strong>Collateral:</strong> 500,000 LASY</li>
+                <li><strong>Server:</strong> 2GB RAM, 20GB SSD</li>
+                <li><strong>Network:</strong> Static IP required</li>
+                <li><strong>Uptime:</strong> 99% recommended</li>
             </ul>
-            <div style="text-align:center;margin-top:25px;">
-                <div style="background: linear-gradient(135deg, var(--cute-pink), var(--cute-purple)); color: white; padding: 20px; border-radius: 15px;">
-                    <div style="font-size:0.9rem;opacity:0.9;">Daily Rewards per MN</div>
-                    <div style="font-family:'Fredoka One';font-size:2rem;">~360,000 LASY</div>
-                </div>
+            <div class="mn-reward-box">
+                <p>Daily Rewards per MN</p>
+                <div>~360,000 LASY</div>
+                <div style="color: #8899aa; font-size: 0.8rem; margin-top: 5px;">(based on ~10 active MNs)</div>
             </div>
         </div>
     </section>
     
     <section id="features" class="features-section">
-        <h2>✨ Why LassieCat?</h2>
-        <p class="section-subtitle">The purr-fect cryptocurrency! 🐱💖</p>
+        <h2>Features</h2>
+        <p class="section-subtitle">Built on proven cryptocurrency technology</p>
         <div class="features-grid">
-            <div class="feature-card"><div class="feature-icon">💎</div><h3>Fixed Supply</h3><p>21B max. No inflation!</p></div>
-            <div class="feature-card"><div class="feature-icon">🌍</div><h3>Community Owned</h3><p>By cat lovers!</p></div>
-            <div class="feature-card"><div class="feature-icon">⚡</div><h3>Fast</h3><p>1-minute blocks!</p></div>
-            <div class="feature-card"><div class="feature-icon">🔒</div><h3>Secure</h3><p>Proven PoW!</p></div>
-            <div class="feature-card"><div class="feature-icon">🎯</div><h3>Fair Launch</h3><p>No pre-mine!</p></div>
-            <div class="feature-card"><div class="feature-icon">💕</div><h3>Cute Cat Theme</h3><p>The most adorable! 🐱</p></div>
-        </div>
-    </section>
-    
-    <section id="roadmap" class="roadmap-section">
-        <h2>🗺️ Roadmap</h2>
-        <p class="section-subtitle">LassieCat's journey! 🐾✨</p>
-        <div class="roadmap-timeline">
-            <div class="roadmap-item completed"><div class="roadmap-marker">✅</div><div class="roadmap-content"><h3>Phase 1: Foundation</h3><ul><li>Project concept & branding</li><li>Website launch</li><li>NEOXA fork & branding</li></ul></div></div>
-            <div class="roadmap-item current"><div class="roadmap-marker">🔄</div><div class="roadmap-content"><h3>Phase 2: Development</h3><ul><li>Build binaries</li><li>Configure genesis</li><li>Test network</li></ul></div></div>
-            <div class="roadmap-item"><div class="roadmap-marker">📋</div><div class="roadmap-content"><h3>Phase 3: Launch</h3><ul><li>Mainnet launch</li><li>Exchange listings</li><li>Mining pools</li></ul></div></div>
-            <div class="roadmap-item"><div class="roadmap-marker">📋</div><div class="roadmap-content"><h3>Phase 4: Growth</h3><ul><li>Mobile wallet</li><li>More exchanges</li><li>Community grow</li></ul></div></div>
-        </div>
-    </section>
-    
-    <section id="download" class="download-section">
-        <h2>📥 Download Wallets</h2>
-        <p class="section-subtitle" style="color:rgba(255,255,255,0.9);">Get your LASY wallet! 🐾💕</p>
-        <div class="download-grid">
-            <div class="download-card"><div class="download-icon">🍎</div><h3>macOS</h3><p>Desktop wallet</p><span class="download-status">Coming Soon</span><a href="#" class="btn">Download</a></div>
-            <div class="download-card"><div class="download-icon">🪟</div><h3>Windows</h3><p>Desktop wallet</p><span class="download-status">Coming Soon</span><a href="#" class="btn">Download</a></div>
-            <div class="download-card"><div class="download-icon">🐧</div><h3>Linux</h3><p>CLI + GUI</p><span class="download-status">Coming Soon</span><a href="#" class="btn">Download</a></div>
-            <div class="download-card"><div class="download-icon">📱</div><h3>Mobile</h3><p>iOS + Android</p><span class="download-status">Phase 4</span><a href="#" class="btn">Learn More</a></div>
-        </div>
-        <div style="text-align:center;margin-top:40px;">
-            <div style="background:rgba(255,255,255,0.1);border-radius:15px;padding:25px;display:inline-block;">
-                <h3 style="color:white;margin-bottom:10px;">💻 Command Line</h3>
-                <code style="background:rgba(0,0,0,0.2);padding:10px 20px;border-radius:8px;display:block;margin:15px 0;">git clone https://github.com/lassiecat/lassiecat</code>
-                <a href="https://github.com/lassiecat" class="btn btn-secondary">View on GitHub 🐙</a>
+            <div class="feature-card">
+                <div class="feature-icon">◈</div>
+                <h3>Fixed Supply</h3>
+                <p>21 Billion max. No inflation.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">◆</div>
+                <h3>Secure</h3>
+                <p>Proven PoW consensus.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">◉</div>
+                <h3>Fast</h3>
+                <p>1-minute blocks, low fees.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⛏</div>
+                <h3>Fair Launch</h3>
+                <p>No pre-mine. No ICO.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">◈</div>
+                <h3>Decentralized</h3>
+                <p>Community owned.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">◆</div>
+                <h3>Open Source</h3>
+                <p>Transparent.</p>
             </div>
         </div>
     </section>
     
+    <section id="roadmap" class="roadmap-section">
+        <h2>Roadmap</h2>
+        <p class="section-subtitle">Development milestones</p>
+        <div class="roadmap-timeline">
+            <div class="roadmap-item completed">
+                <div class="roadmap-marker">✓</div>
+                <div class="roadmap-content">
+                    <h3>Phase 1: Foundation</h3>
+                    <ul>
+                        <li>Project concept and branding</li>
+                        <li>Website launch</li>
+                        <li>NEOXA fork and branding</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="roadmap-item current">
+                <div class="roadmap-marker">◉</div>
+                <div class="roadmap-content">
+                    <h3>Phase 2: Development</h3>
+                    <ul>
+                        <li>Build binaries</li>
+                        <li>Configure genesis</li>
+                        <li>Test network</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-marker">○</div>
+                <div class="roadmap-content">
+                    <h3>Phase 3: Launch</h3>
+                    <ul>
+                        <li>Mainnet launch</li>
+                        <li>Exchange listings</li>
+                        <li>Mining pools</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-marker">○</div>
+                <div class="roadmap-content">
+                    <h3>Phase 4: Growth</h3>
+                    <ul>
+                        <li>Mobile wallet</li>
+                        <li>Exchanges</li>
+                        <li>Community grow</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="download" class="download-section">
+        <h2>Download</h2>
+        <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Choose your platform</p>
+        <div class="download-grid">
+            <div class="download-card">
+                <div class="download-icon">🍎</div>
+                <h3>macOS</h3>
+                <p>Desktop wallet</p>
+                <span class="download-status">Coming Soon</span>
+            </div>
+            <div class="download-card">
+                <div class="download-icon">🪟</div>
+                <h3>Windows</h3>
+                <p>Desktop wallet</p>
+                <span class="download-status">Coming Soon</span>
+            </div>
+            <div class="download-card">
+                <div class="download-icon">🐧</div>
+                <h3>Linux</h3>
+                <p>CLI + GUI</p>
+                <span class="download-status">Coming Soon</span>
+            </div>
+            <div class="download-card">
+                <div class="download-icon">📱</div>
+                <h3>Mobile</h3>
+                <p>iOS + Android</p>
+                <span class="download-status">Phase 4</span>
+            </div>
+        </div>
+        <div class="cli-section">
+            <h3>Command Line</h3>
+            <code>git clone https://github.com/lassiecat/lassiecat</code>
+            <a href="https://github.com/lassiecat" class="btn">View on GitHub</a>
+        </div>
+    </section>
+    
     <section id="community" class="community-section">
-        <h2>👥 Community</h2>
-        <p class="section-subtitle">Join the LassieCat family! 🐱💕</p>
+        <h2>Community</h2>
+        <p class="section-subtitle">Join the project</p>
         <div class="community-grid">
-            <a href="https://github.com/lassiecat" class="community-card"><div class="community-icon">🐙</div><h3>GitHub</h3><p>Source code</p></a>
-            <div class="community-card"><div class="community-icon">💬</div><h3>Discord</h3><p>Coming Soon</p></div>
-            <div class="community-card"><div class="community-icon">🐦</div><h3>Twitter</h3><p>Coming Soon</p></div>
-            <div class="community-card"><div class="community-icon">📧</div><h3>Email</h3><p>team@lassiecat.io</p></div>
+            <a href="https://github.com/lassiecat" class="community-card">
+                <div class="community-icon">🐙</div>
+                <h3>GitHub</h3>
+                <p>Source code</p>
+            </a>
+            <div class="community-card">
+                <div class="community-icon">💬</div>
+                <h3>Discord</h3>
+                <p>Coming Soon</p>
+            </div>
+            <div class="community-card">
+                <div class="community-icon">🐦</div>
+                <h3>Twitter</h3>
+                <p>Coming Soon</p>
+            </div>
+            <div class="community-card">
+                <div class="community-icon">📧</div>
+                <h3>Email</h3>
+                <p>team@lassiecat.io</p>
+            </div>
         </div>
     </section>
     
     <footer>
         <div class="footer-content">
-            <div class="footer-brand"><div class="logo" style="color:white;"><div class="logo-cat" style="background:rgba(255,255,255,0.2);">🐱</div>LassieCat</div><p>LASY Coin - The Cutest KawPoW Cryptocurrency! 🐱💕</p></div>
-            <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#coinomics">Coinomics</a></li><li><a href="#mining">Mining</a></li><li><a href="#masternodes">Masternodes</a></li></ul></div>
-            <div class="footer-links"><h4>Resources</h4><ul><li><a href="https://github.com/lassiecat">GitHub</a></li><li><a href="#download">Downloads</a></li><li><a href="#roadmap">Roadmap</a></li><li><a href="#community">Community</a></li></ul></div>
+            <div class="footer-brand">
+                <div class="logo" style="color: white;"><div class="logo-cat" style="background: rgba(255,255,255,0.1);">🐱</div>LassieCat</div>
+                <p>LASY Coin - KawPoW cryptocurrency with masternode rewards.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#coinomics">Coinomics</a></li>
+                    <li><a href="#mining">Mining</a></li>
+                    <li><a href="#masternodes">Masternodes</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="https://github.com/lassiecat">GitHub</a></li>
+                    <li><a href="#download">Downloads</a></li>
+                    <li><a href="#roadmap">Roadmap</a></li>
+                    <li><a href="#community">Community</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="footer-bottom"><p>&copy; 2026 LassieCat. Made with 💕 and 🐱</p><p class="footer-note">LASY Coin - Not a token. A true cryptocurrency!</p></div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 LassieCat. All rights reserved.</p>
+            <p class="footer-note">LASY Coin - True cryptocurrency.</p>
+        </div>
     </footer>
 </body>
 </html>
