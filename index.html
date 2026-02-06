@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LassieCat (LASY) - Community cryptocurrency with masternode rewards. Fast, secure, and accessible.">
-    <meta name="keywords" content="LASY, cryptocurrency, crypto, masternode, X11, blockchain">
-    <title>LassieCat (LASY) - Community Cryptocurrency 🐱</title>
+    <meta name="description" content="LassieCat (LASY) - GPU mineable cryptocurrency with masternode rewards. KawPoW algorithm, 21B fixed supply.">
+    <meta name="keywords" content="LASY, cryptocurrency, crypto, masternode, KawPoW, GPU mining, blockchain, coin">
+    <title>LassieCat (LASY) - GPU Mineable Coin 🐱</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" href="assets/images/lassie-cat.jpg">
-    <meta property="og:title" content="LassieCat (LASY) - Community Cryptocurrency">
-    <meta property="og:description" content="Join the LassieCat community. Fast transactions, masternode rewards, X11 security.">
+    <meta property="og:title" content="LassieCat (LASY) - GPU Mineable Coin">
+    <meta property="og:description" content="KawPoW GPU mining + Masternodes. 21B fixed supply. 50% MN rewards.">
     <meta property="og:image" content="assets/images/lassie-cat.jpg">
 </head>
 <body>
@@ -17,10 +17,10 @@
         <div class="logo"><span class="cartoon-emoji">🐱</span> LassieCat</div>
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#tokenomics">Tokenomics</a></li>
-            <li><a href="#features">Features</a></li>
+            <li><a href="#coinomics">Coinomics</a></li>
+            <li><a href="#mining">Mining</a></li>
+            <li><a href="#masternodes">Masternodes</a></li>
             <li><a href="#roadmap">Roadmap</a></li>
-            <li><a href="#team">Team</a></li>
             <li><a href="#download">Download</a></li>
             <li><a href="#community">Community</a></li>
         </ul>
@@ -31,483 +31,388 @@
         <div class="hero-bg">
             <div class="floating-cat">🐱</div>
             <div class="floating-cat">💎</div>
-            <div class="floating-cat">🚀</div>
+            <div class="floating-cat">⛏️</div>
             <div class="floating-cat">⭐</div>
         </div>
         <div class="hero-content">
-            <div class="hero-badge">🚀 Now Live</div>
+            <div class="hero-badge">🚀 Coming Soon</div>
             <div class="hero-cat">
                 <img src="assets/images/lassie-cat.jpg" alt="LassieCat Mascot">
             </div>
             <h1>LassieCat</h1>
-            <h2>LASY Token</h2>
-            <p class="tagline">The People's Cryptocurrency</p>
+            <h2>LASY Coin</h2>
+            <p class="tagline">GPU Mineable Cryptocurrency</p>
             <p class="hero-description">
-                Community-driven cryptocurrency with masternode rewards. 
-                Fast, secure, and accessible. Join thousands of holders today.
+                KawPoW algorithm + Masternodes. 
+                21 Billion fixed supply. 
+                Fair distribution, community owned.
             </p>
             <div class="hero-buttons">
-                <a href="#download" class="btn btn-primary btn-large">Get Wallet</a>
-                <a href="#tokenomics" class="btn btn-secondary btn-large">Learn More</a>
+                <a href="#download" class="btn btn-primary btn-large">Download Wallet</a>
+                <a href="#coinomics" class="btn btn-secondary btn-large">Learn More</a>
             </div>
         </div>
     </section>
     
-    <!-- Live Network Stats -->
+    <!-- Live Stats -->
     <section class="network-stats">
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-icon">📊</div>
-                    <h3>Block Height</h3>
-                    <p class="stat-value" id="block-height">Loading...</p>
-                    <span class="stat-label">Latest Block</span>
+                    <h3>Supply</h3>
+                    <p class="stat-value">21 Billion</p>
+                    <span class="stat-label">Fixed Max Supply</span>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon">🔗</div>
-                    <h3>Network Hashrate</h3>
-                    <p class="stat-value" id="hashrate">Loading...</p>
-                    <span class="stat-label">Total Network Power</span>
+                    <div class="stat-icon">⛏️</div>
+                    <h3>Algorithm</h3>
+                    <p class="stat-value">KawPoW</p>
+                    <span class="stat-label">GPU Mineable</span>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">💰</div>
-                    <h3>Price</h3>
-                    <p class="stat-value" id="price">Loading...</p>
-                    <span class="stat-label">USD per LASY</span>
+                    <h3>Block Reward</h3>
+                    <p class="stat-value">5,000 LASY</p>
+                    <span class="stat-label">Per Block</span>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon">🐱</div>
-                    <h3>Holders</h3>
-                    <p class="stat-value">1,000+</p>
-                    <span class="stat-label">Community Members</span>
+                    <div class="stat-icon">⏱️</div>
+                    <h3>Block Time</h3>
+                    <p class="stat-value">1 Minute</p>
+                    <span class="stat-label">Fast Confirmations</span>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Tokenomics Section -->
-    <section id="tokenomics" class="tokenomics-detailed">
+    <!-- Coinomics Section -->
+    <section id="coinomics" class="tokenomics-detailed">
         <div class="container">
-            <h2>📊 Tokenomics</h2>
+            <h2>📊 Coinomics</h2>
             <p class="section-subtitle">LassieCat economic model and block rewards</p>
             
             <div class="tokenomics-hero">
                 <div class="current-reward">
                     <span class="reward-label">Current Block Reward</span>
-                    <span class="reward-value">5 LASY</span>
+                    <span class="reward-value">5,000 LASY</span>
                 </div>
             </div>
             
-            <div class="allocation-chart">
-                <h3>Block Reward Allocation</h3>
-                <div class="chart-container">
-                    <div class="donut-chart">
-                        <div class="chart-segment mn" style="--percentage: 45%; --color: var(--primary);">
-                            <span class="segment-label">45%</span>
-                        </div>
-                        <div class="chart-segment miner" style="--percentage: 45%; --color: var(--secondary);">
-                            <span class="segment-label">45%</span>
-                        </div>
-                        <div class="chart-segment gov" style="--percentage: 10%; --color: var(--accent);">
-                            <span class="segment-label">10%</span>
-                        </div>
+            <div class="reward-breakdown">
+                <div class="reward-card masternodes">
+                    <div class="reward-icon">🖥️</div>
+                    <h3>Masternodes</h3>
+                    <div class="reward-percent">50%</div>
+                    <div class="reward-amount">2,500 LASY</div>
+                    <p>Network validators and infrastructure</p>
+                    <div class="collateral-badge">Collateral: 500,000 LASY</div>
+                </div>
+                
+                <div class="reward-card miners">
+                    <div class="reward-icon">⛏️</div>
+                    <h3>Miners</h3>
+                    <div class="reward-percent">45%</div>
+                    <div class="reward-amount">2,250 LASY</div>
+                    <p>GPU mining rewards (KawPoW)</p>
+                </div>
+                
+                <div class="reward-card dev">
+                    <div class="reward-icon">🔧</div>
+                    <h3>Dev Fee</h3>
+                    <div class="reward-percent">5%</div>
+                    <div class="reward-amount">250 LASY</div>
+                    <p>Development fund</p>
+                </div>
+            </div>
+            
+            <div class="supply-info">
+                <div class="supply-card">
+                    <h3>🔒 Fixed Supply</h3>
+                    <p>Maximum supply of 21,000,000,000 LASY</p>
+                    <p class="supply-note">No inflation, no halving - fair from day one</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mining Section -->
+    <section id="mining" class="features-section">
+        <div class="container">
+            <h2>⛏️ GPU Mining</h2>
+            <p class="section-subtitle">Mine LASY with your GPU using KawPoW algorithm</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>ASIC Resistant</h3>
+                    <p>KawPoW algorithm ensures fair distribution. No specialized mining hardware needed.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3>GPU Friendly</h3>
+                    <p>Works with popular GPU miners. 4GB+ VRAM recommended.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast Blocks</h3>
+                    <p>1-minute block times for quick rewards.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Wide Compatibility</h3>
+                    <p>Mine with NVIDIA or AMD GPUs.</p>
+                </div>
+            </div>
+            
+            <div class="mining-setup">
+                <h3>Getting Started</h3>
+                <ol class="setup-steps">
+                    <li>Download wallet and sync blockchain</li>
+                    <li>Get LASY address from wallet</li>
+                    <li>Configure KawPoW miner</li>
+                    <li>Start mining and earn rewards</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Masternodes Section -->
+    <section id="masternodes" class="masternodes-section">
+        <div class="container">
+            <h2>🖥️ Masternodes</h2>
+            <p class="section-subtitle">Run a masternode and earn 50% of block rewards</p>
+            
+            <div class="mn-requirements">
+                <h3>Requirements</h3>
+                <ul>
+                    <li><strong>Collateral:</strong> 500,000 LASY</li>
+                    <li><strong>Server:</strong> 2GB RAM, 20GB SSD</li>
+                    <li><strong>Uptime:</strong> 99% recommended</li>
+                    <li><strong>Network:</strong> Static IP required</li>
+                </ul>
+            </div>
+            
+            <div class="mn-rewards-calculator">
+                <h3>Reward Calculator</h3>
+                <div class="calculator-grid">
+                    <div class="calc-input">
+                        <label>Number of Masternodes</label>
+                        <input type="range" min="1" max="100" value="10" id="mn-slider">
+                        <span id="mn-count">10</span>
                     </div>
-                    <div class="chart-legend">
-                        <div class="legend-item">
-                            <span class="legend-color mn"></span>
-                            <span class="legend-label">Masternodes (2,250 LASY)</span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-color miner"></span>
-                            <span class="legend-label">Miners (2,250 LASY)</span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-color gov"></span>
-                            <span class="legend-label">Governance (500 LASY)</span>
-                        </div>
+                    <div class="calc-result">
+                        <p>Daily Rewards per MN:</p>
+                        <span id="daily-reward">360,000 LASY</span>
                     </div>
                 </div>
             </div>
             
-            <div class="token-details">
-                <div class="detail-card">
-                    <div class="detail-icon">💎</div>
-                    <h4>Max Supply</h4>
-                    <p class="detail-value">21,000,000 LASY</p>
-                    <p class="detail-desc">Fixed supply, no inflation</p>
-                </div>
-                <div class="detail-card">
-                    <div class="detail-icon">⛏️</div>
-                    <h4>Min Masternode</h4>
-                    <p class="detail-value">5,000 LASY</p>
-                    <p class="detail-desc">To run a masternode</p>
-                </div>
-                <div class="detail-card">
-                    <div class="detail-icon">⏱️</div>
-                    <h4>Block Time</h4>
-                    <p class="detail-value">60 Seconds</p>
-                    <p class="detail-desc">Fast confirmations</p>
-                </div>
-                <div class="detail-card">
-                    <div class="detail-icon">🔐</div>
-                    <h4>Algorithm</h4>
-                    <p class="detail-value">X11</p>
-                    <p class="detail-desc">Secure & efficient</p>
-                </div>
-            </div>
-            
-            <div class="allocation-breakdown">
-                <div class="breakdown-card">
-                    <h4>🛡️ Masternodes (45%)</h4>
-                    <p>2,250 LASY per block</p>
-                    <p class="breakdown-desc">Masternodes provide network infrastructure, enabling instant transactions and PrivateSend. Run a masternode to earn passive income.</p>
-                    <a href="#masternodes" class="btn btn-small">Learn More</a>
-                </div>
-                <div class="breakdown-card">
-                    <h4>⛏️ Miners (45%)</h4>
-                    <p>2,250 LASY per block</p>
-                    <p class="breakdown-desc">Miners secure the network through Proof of Work. X11 algorithm ensures fair distribution and energy efficiency.</p>
-                </div>
-                <div class="breakdown-card">
-                    <h4>🏛️ Governance (10%)</h4>
-                    <p>500 LASY per block</p>
-                    <p class="breakdown-desc">Funds development, marketing, and community initiatives. Community decides allocation through governance proposals.</p>
-                </div>
+            <div class="setup-info">
+                <h3>Setup Guide</h3>
+                <p>Full masternode setup guide coming soon.</p>
             </div>
         </div>
     </section>
     
     <!-- Features Section -->
-    <section id="features" class="features-detailed">
+    <section id="features" class="features-section">
         <div class="container">
-            <h2>✨ Key Features</h2>
-            <p class="section-subtitle">What makes LassieCat stand out</p>
+            <h2>✨ Features</h2>
+            <p class="section-subtitle">Built on proven cryptocurrency technology</p>
             
             <div class="features-grid">
-                <div class="feature-card featured">
-                    <div class="feature-badge">⭐ Popular</div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>Layer 1 Blockchain</h3>
+                    <p>Native blockchain, not a token. Full sovereignty and security.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💎</div>
+                    <h3>Fixed Supply</h3>
+                    <p>21 Billion maximum supply. No inflation, ever.</p>
+                </div>
+                
+                <div class="feature-card">
                     <div class="feature-icon">⚡</div>
-                    <h3>Lightning Fast</h3>
-                    <p>60-second block times for instant transactions worldwide.</p>
-                    <ul>
-                        <li>✅ 60s block time</li>
-                        <li>✅ Instant transactions</li>
-                        <li>✅ Global nodes</li>
-                    </ul>
+                    <h3>Fast Transactions</h3>
+                    <p>1-minute block times with low fees.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Secure</h3>
+                    <p>Proven PoW consensus with KawPoW algorithm.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">💰</div>
-                    <h3>Masternode Rewards</h3>
-                    <p>Earn 45% of block rewards by running a masternode.</p>
-                    <ul>
-                        <li>✅ 45% MN rewards</li>
-                        <li>✅ 5,000 LASY collateral</li>
-                        <li>✅ Passive income</li>
-                    </ul>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🔐</div>
-                    <h3>Secure X11</h3>
-                    <p>Battle-tested X11 consensus algorithm.</p>
-                    <ul>
-                        <li>✅ ASIC resistant</li>
-                        <li>✅ Energy efficient</li>
-                        <li>✅ Fair distribution</li>
-                    </ul>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">💸</div>
-                    <h3>Low Fees</h3>
-                    <p>Minimal transaction costs for everyone.</p>
-                    <ul>
-                        <li>✅ Fraction of a cent</li>
-                        <li>✅ No congestion</li>
-                        <li>✅ Predictable</li>
-                    </ul>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
-                    <h3>PrivateSend</h3>
-                    <p>Optional privacy for confidential transactions.</p>
-                    <ul>
-                        <li>✅ Optional privacy</li>
-                        <li>✅ Mix your coins</li>
-                        <li>✅ Financial freedom</li>
-                    </ul>
+                    <h3>No Pre-mine</h3>
+                    <p>Fair launch. All coins earned through mining or masternodes.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">🌍</div>
-                    <h3>Community Driven</h3>
-                    <p>No VC, no pre-mine, owned by the people.</p>
-                    <ul>
-                        <li>✅ Community governed</li>
-                        <li>✅ Transparent</li>
-                        <li>✅ Fair launch</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Masternode Section -->
-    <section id="masternodes" class="masternode-section">
-        <div class="container">
-            <h2>🏆 Masternodes</h2>
-            <p class="section-subtitle">Run a masternode and earn passive income</p>
-            
-            <div class="mn-calculator">
-                <h3>Masternode ROI Calculator</h3>
-                <div class="calculator-grid">
-                    <div class="calc-input">
-                        <label>Number of Masternodes</label>
-                        <input type="number" id="mn-count" value="1" min="1">
-                    </div>
-                    <div class="calc-result">
-                        <div class="result-item">
-                            <span class="result-label">Daily Reward</span>
-                            <span class="result-value" id="daily-reward">0 LASY</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-label">Weekly Reward</span>
-                            <span class="result-value" id="weekly-reward">0 LASY</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-label">Monthly Reward</span>
-                            <span class="result-value" id="monthly-reward">0 LASY</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mn-requirements">
-                <h4>Requirements to Run a Masternode</h4>
-                <div class="requirements-grid">
-                    <div class="req-item">
-                        <span class="req-icon">💰</span>
-                        <span>5,000 LASY collateral</span>
-                    </div>
-                    <div class="req-item">
-                        <span class="req-icon">🖥️</span>
-                        <span>1 CPU, 2GB RAM</span>
-                    </div>
-                    <div class="req-item">
-                        <span class="req-icon">💾</span>
-                        <span>20GB+ storage</span>
-                    </div>
-                    <div class="req-item">
-                        <span class="req-icon">🌐</span>
-                        <span>Static IP address</span>
-                    </div>
+                    <h3>Community Owned</h3>
+                    <p>Decentralized development and governance.</p>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Roadmap Section -->
-    <section id="roadmap" class="roadmap-detailed">
+    <section id="roadmap" class="roadmap-section">
         <div class="container">
             <h2>🗺️ Roadmap</h2>
-            <p class="section-subtitle">Our journey from inception to global adoption</p>
+            <p class="section-subtitle">LassieCat development milestones</p>
             
             <div class="roadmap-timeline">
-                <div class="timeline-phase completed">
-                    <div class="phase-header">
-                        <span class="phase-status">✅</span>
+                <div class="roadmap-item completed">
+                    <div class="roadmap-marker">✅</div>
+                    <div class="roadmap-content">
                         <h3>Phase 1: Foundation</h3>
-                    </div>
-                    <div class="phase-content">
-                        <p class="phase-status-text">COMPLETED</p>
                         <ul>
-                            <li>✅ Core development</li>
-                            <li>✅ Mainnet launch</li>
-                            <li>✅ Wallet releases</li>
-                            <li>✅ Website launch</li>
-                            <li>✅ Community building</li>
+                            <li>Project concept and branding</li>
+                            <li>Website launch</li>
+                            <li>Source code fork (NEOXA)</li>
+                            <li>Branding applied</li>
                         </ul>
                     </div>
                 </div>
                 
-                <div class="timeline-phase current">
-                    <div class="phase-header">
-                        <span class="phase-status">🔄</span>
-                        <h3>Phase 2: Growth</h3>
-                    </div>
-                    <div class="phase-content">
-                        <p class="phase-status-text">IN PROGRESS</p>
+                <div class="roadmap-item current">
+                    <div class="roadmap-marker">🔄</div>
+                    <div class="roadmap-content">
+                        <h3>Phase 2: Development</h3>
                         <ul>
-                            <li>🔄 Masternode expansion</li>
-                            <li>🔄 Exchange listings</li>
-                            <li>🔄 Marketing campaign</li>
-                            <li>🔄 CMC listing</li>
-                            <li>🔄 Ambassador program</li>
+                            <li>Build binaries (macOS, Windows, Linux)</li>
+                            <li>Configure genesis block</li>
+                            <li>Test on local network</li>
+                            <li>Security audit</li>
                         </ul>
                     </div>
                 </div>
                 
-                <div class="timeline-phase upcoming">
-                    <div class="phase-header">
-                        <span class="phase-status">📋</span>
-                        <h3>Phase 3: Evolution</h3>
-                    </div>
-                    <div class="phase-content">
-                        <p class="phase-status-text">COMING SOON</p>
+                <div class="roadmap-item">
+                    <div class="roadmap-marker">📋</div>
+                    <div class="roadmap-content">
+                        <h3>Phase 3: Launch</h3>
                         <ul>
-                            <li>📋 Mobile wallet</li>
-                            <li>📋 DeFi integration</li>
-                            <li>📋 Cross-chain bridges</li>
-                            <li>📋 Merchant adoption</li>
-                            <li>📋 Global expansion</li>
+                            <li>Mainnet launch</li>
+                            <li>Exchange listings</li>
+                            <li>Mining pool partnerships</li>
+                            <li>Wallet integrations</li>
                         </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Team Section -->
-    <section id="team" class="team-section">
-        <div class="container">
-            <h2>👥 The Team</h2>
-            <p class="section-subtitle">Passionate individuals building LassieCat</p>
-            
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <img src="assets/images/lassie-cat.jpg" alt="Lassie">
-                    </div>
-                    <h4>Lassie</h4>
-                    <p class="team-role">Founder & Developer</p>
-                    <p class="team-desc">Passionate about crypto and cats. Building the future of decentralized finance.</p>
-                </div>
                 
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <span>🐱</span>
+                <div class="roadmap-item">
+                    <div class="roadmap-marker">📋</div>
+                    <div class="roadmap-content">
+                        <h3>Phase 4: Growth</h3>
+                        <ul>
+                            <li>Mobile wallet</li>
+                            <li>Exchange integrations</li>
+                            <li>Merchant adoption</li>
+                            <li>Community expansion</li>
+                        </ul>
                     </div>
-                    <h4>Maxwell</h4>
-                    <p class="team-role">Community Lead</p>
-                    <p class="team-desc">Building the LassieCat community worldwide. Connect on Telegram.</p>
-                </div>
-                
-                <div class="team-card">
-                    <div class="team-avatar">
-                        <span>💻</span>
-                    </div>
-                    <h4>Open Source</h4>
-                    <p class="team-role">Development Team</p>
-                    <p class="team-desc">Community developers contributing to LassieCat's growth.</p>
                 </div>
             </div>
         </div>
     </section>
     
     <!-- Download Section -->
-    <section id="download" class="download-detailed">
+    <section id="download" class="download-section">
         <div class="container">
-            <h2>⬇️ Download Wallets</h2>
-            <p class="section-subtitle">Get started with LassieCat today</p>
+            <h2>📥 Download Wallets</h2>
+            <p class="section-subtitle">Choose your platform</p>
             
             <div class="download-grid">
                 <div class="download-card">
-                    <div class="platform-icon">
-                        <img src="assets/images/macos-icon.png" alt="macOS">
-                    </div>
+                    <div class="download-icon">🍎</div>
                     <h3>macOS</h3>
-                    <p class="download-version">Version 1.0.0</p>
-                    <a href="#" class="download-btn">Download for macOS</a>
-                    <p class="download-note">Requires macOS 10.14+</p>
+                    <p>Desktop wallet for Mac</p>
+                    <span class="download-status">Coming Soon</span>
+                    <a href="#" class="btn btn-secondary">Download</a>
                 </div>
                 
                 <div class="download-card">
-                    <div class="platform-icon">
-                        <img src="assets/images/windows-icon.png" alt="Windows">
-                    </div>
+                    <div class="download-icon">🪟</div>
                     <h3>Windows</h3>
-                    <p class="download-version">Version 1.0.0</p>
-                    <a href="#" class="download-btn">Download for Windows</a>
-                    <p class="download-note">Requires Windows 10+</p>
+                    <p>Desktop wallet for Windows</p>
+                    <span class="download-status">Coming Soon</span>
+                    <a href="#" class="btn btn-secondary">Download</a>
                 </div>
                 
                 <div class="download-card">
-                    <div class="platform-icon">
-                        <img src="assets/images/linux-icon.png" alt="Linux">
-                    </div>
+                    <div class="download-icon">🐧</div>
                     <h3>Linux</h3>
-                    <p class="download-version">Version 1.0.0</p>
-                    <a href="#" class="download-btn">Download for Linux</a>
-                    <p class="download-note">Ubuntu 20.04+ recommended</p>
+                    <p>CLI and GUI wallets</p>
+                    <span class="download-status">Coming Soon</span>
+                    <a href="#" class="btn btn-secondary">Download</a>
                 </div>
                 
                 <div class="download-card">
-                    <div class="platform-icon">
-                        <img src="assets/images/github-icon.png" alt="GitHub" onerror="this.parentElement.innerHTML='<div class=github-fallback>🐙</div>'">
-                    </div>
-                    <h3>Source Code</h3>
-                    <p class="download-version">Open Source</p>
-                    <a href="https://github.com/lassiecat/website" class="download-btn">View on GitHub</a>
-                    <p class="download-note">Audit our code</p>
+                    <div class="download-icon">📱</div>
+                    <h3>Mobile</h3>
+                    <p>iOS and Android</p>
+                    <span class="download-status">Phase 4</span>
+                    <a href="#" class="btn btn-secondary">Learn More</a>
                 </div>
             </div>
             
-            <div class="security-notice">
-                <div class="security-icon">🔒</div>
-                <div class="security-content">
-                    <h4>Security Verification</h4>
-                    <p>Always verify downloads using SHA256 checksums. Never download from unofficial sources.</p>
-                    <a href="#" class="btn btn-small">Verify Checksums</a>
+            <div class="cli-section">
+                <h3>💻 Command Line Interface</h3>
+                <p>For advanced users and masternode operators</p>
+                <div class="code-block">
+                    <code>git clone https://github.com/lassiecat/lassiecat.git</code>
                 </div>
+                <a href="https://github.com/lassiecat/lassiecat" class="btn btn-primary">View on GitHub</a>
             </div>
         </div>
     </section>
     
     <!-- Community Section -->
-    <section id="community" class="community-detailed">
+    <section id="community" class="community-section">
         <div class="container">
-            <h2>👥 Join the Community</h2>
-            <p class="section-subtitle">Become part of the LassieCat family</p>
+            <h2>👥 Community</h2>
+            <p class="section-subtitle">Join the LassieCat community</p>
             
             <div class="community-grid">
-                [<!-- Telegram removed -->
-                    <div class="community-icon">✈️</div>
-                    <h3>Telegram</h3>
-                    <p>Join the discussion</p>
-                    <span class="join-btn">Join Group</span>
-                </a>
-                
-                <a href="#" class="community-card twitter">
-                    <div class="community-icon">𝕏</div>
-                    <h3>Twitter/X</h3>
-                    <p>@LassieCat</p>
-                    <span class="join-btn">Follow Us</span>
-                </a>
-                
-                <a href="#" class="community-card discord">
-                    <div class="community-icon">💬</div>
-                    <h3>Discord</h3>
-                    <p>Chat with community</p>
-                    <span class="join-btn">Join Server</span>
-                </a>
-                
-                <a href="https://github.com/lassiecat/website" class="community-card github">
+                <a href="https://github.com/lassiecat" class="community-card">
                     <div class="community-icon">🐙</div>
                     <h3>GitHub</h3>
-                    <p>Contribute code</p>
-                    <span class="join-btn">Contribute</span>
+                    <p>Source code and development</p>
                 </a>
+                
+                <div class="community-card">
+                    <div class="community-icon">💬</div>
+                    <h3>Discord</h3>
+                    <p>Community chat (coming soon)</p>
+                </div>
+                
+                <div class="community-card">
+                    <div class="community-icon">🐦</div>
+                    <h3>Twitter</h3>
+                    <p>Follow for updates (coming soon)</p>
+                </div>
+                
+                <div class="community-card">
+                    <div class="community-icon">📧</div>
+                    <h3>Email</h3>
+                    <p>Contact team@lassiecat.io</p>
+                </div>
             </div>
             
-            <div class="cta-section">
-                <div class="cta-cat">
-                    <img src="assets/images/lassie-cat.jpg" alt="LassieCat Mascot">
-                </div>
-                <h3>🚀 Ready to Get Started?</h3>
-                <p>Download a wallet and join the LassieCat community today!</p>
-                <a href="#download" class="btn btn-primary btn-large">Download Wallet</a>
+            <div class="contribute-section">
+                <h3>🤝 Contribute</h3>
+                <p>LassieCat is open source. Help build the future!</p>
+                <a href="https://github.com/lassiecat" class="btn btn-primary">Contribute on GitHub</a>
             </div>
         </div>
     </section>
@@ -515,56 +420,40 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-grid">
+            <div class="footer-content">
                 <div class="footer-brand">
                     <div class="logo"><span class="cartoon-emoji">🐱</span> LassieCat</div>
-                    <p>The community cryptocurrency for cat lovers everywhere.</p>
-                    <div class="social-links">
-                        
-                        <a href="#">𝕏</a>
-                        <a href="#">💬</a>
-                        <a href="https://github.com/lassiecat/website">🐙</a>
-                    </div>
+                    <p>LASY Coin - GPU Mineable Cryptocurrency</p>
                 </div>
                 
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#tokenomics">Tokenomics</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#download">Download</a></li>
+                        <li><a href="#coinomics">Coinomics</a></li>
+                        <li><a href="#mining">Mining</a></li>
+                        <li><a href="#masternodes">Masternodes</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-links">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="#">Explorer</a></li>
-                        <li><a href="#">API Docs</a></li>
-                        <li><a href="#">Branding</a></li>
-                        <li><a href="#">Whitepaper</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Community</h4>
-                    <ul>
-                        <li></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Discord</a></li>
-                        <li><a href="#">GitHub</a></li>
+                        <li><a href="https://github.com/lassiecat">GitHub</a></li>
+                        <li><a href="#download">Downloads</a></li>
+                        <li><a href="#roadmap">Roadmap</a></li>
+                        <li><a href="#community">Community</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <p>&copy; 2026 LassieCat. All rights reserved.</p>
-                <p class="disclaimer">
-                    LassieCat is a decentralized cryptocurrency. Do your own research before investing.
-                </p>
+                <p class="footer-note">LASY Coin - Not a token. A true cryptocurrency.</p>
             </div>
         </div>
     </footer>
+    
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
