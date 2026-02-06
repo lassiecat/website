@@ -6,6 +6,10 @@
     </linearGradient>
   </defs>
   
+  <!-- Coin-like circle -->
+  <circle cx="256" cy="256" r="240" fill="none" stroke="url(#catGrad)" stroke-width="8"/>
+  <circle cx="256" cy="256" r="220" fill="#0d1117"/>
+  
   <!-- Stylized cat head - geometric -->
   <path d="M150 200 L120 100 L200 160 L256 130 L312 160 L392 100 L362 200 L360 300 L256 350 L152 300 Z" fill="url(#catGrad)"/>
   
@@ -22,8 +26,7 @@
   <!-- Mouth - stylized -->
   <path d="M256 310 L256 335 M235 330 Q256 350 277 330" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round"/>
   
-  <!-- LASY text - bold -->
-  <text x="256" y="400" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="48" fill="#ffffff" letter-spacing="6">LASY</text>
+  <!-- LASY text removed -->
   
   <!-- Decorative elements -->
   <circle cx="256" cy="450" r="8" fill="#00d4ff"/>
