@@ -6,10 +6,6 @@
     </linearGradient>
   </defs>
   
-  <!-- Coin-like circle -->
-  <circle cx="256" cy="256" r="240" fill="none" stroke="url(#catGrad)" stroke-width="8"/>
-  <circle cx="256" cy="256" r="220" fill="#0d1117"/>
-  
   <!-- Stylized cat head - geometric -->
   <path d="M150 200 L120 100 L200 160 L256 130 L312 160 L392 100 L362 200 L360 300 L256 350 L152 300 Z" fill="url(#catGrad)"/>
   
