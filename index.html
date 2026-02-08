@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LassieCat (LASY) - KawPoW cryptocurrency with masternode rewards">
-    <title>LassieCat (LASY) - KawPoW Coin</title>
+    <meta name="description" content="LassieCat (LASY) - Ethash cryptocurrency for GPU mining">
+    <title>LassieCat (LASY) - Ethash Coin</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -62,11 +62,19 @@
         .stat-value { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--primary); letter-spacing: 2px; }
         .stat-label { color: #4a5568; font-size: 0.75rem; margin-top: 4px; }
         
+        .chain-section { background: linear-gradient(180deg, var(--darker) 0%, var(--dark) 100%); }
+        .chain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
+        .chain-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 25px; text-align: center; transition: all 0.3s; }
+        .chain-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+        .chain-icon { font-size: 2rem; margin-bottom: 12px; }
+        .chain-card h3 { color: white; font-size: 0.9rem; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
+        .chain-card p { color: var(--accent); font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 2px; }
+        .chain-card .detail { color: #5a656e; font-size: 0.8rem; margin-top: 6px; }
+        
         .coinomics-section { background: linear-gradient(180deg, var(--darker) 0%, var(--dark) 100%); }
         .reward-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1050px; margin: 0 auto; }
         .reward-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 30px 25px; text-align: center; transition: all 0.3s; position: relative; }
         .reward-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; }
-        .reward-card.masternodes::before { background: linear-gradient(90deg, var(--primary), var(--accent)); }
         .reward-card.miners::before { background: linear-gradient(90deg, #0099cc, var(--primary)); }
         .reward-card.dev::before { background: linear-gradient(90deg, var(--accent), #00cc66); }
         .reward-card:hover { transform: translateY(-5px); border-color: var(--primary); }
@@ -75,7 +83,6 @@
         .reward-percent { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--primary); margin-bottom: 3px; letter-spacing: 2px; }
         .reward-amount { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 12px; }
         .reward-card p { color: #5a656e; font-size: 0.85rem; line-height: 1.5; }
-        .collateral-badge { display: inline-block; background: rgba(0, 212, 255, 0.1); border: 1px solid var(--primary); color: var(--primary); padding: 8px 18px; border-radius: 5px; font-size: 0.8rem; font-weight: 600; margin-top: 18px; text-transform: uppercase; letter-spacing: 1px; }
         
         .supply-card { background: linear-gradient(135deg, var(--card-bg), rgba(0, 212, 255, 0.05)); border: 1px solid var(--card-border); border-radius: 10px; padding: 35px; text-align: center; max-width: 450px; margin: 35px auto 0; }
         .supply-card h3 { font-size: 1rem; color: var(--accent); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 3px; }
@@ -97,29 +104,14 @@
         .mining-card h3 { color: var(--accent); font-size: 0.95rem; margin: 12px 0 8px; text-transform: uppercase; letter-spacing: 1px; }
         .mining-card p { color: #5a656e; font-size: 0.8rem; line-height: 1.4; }
         
-        .masternodes-section { background: var(--darker); border-top: 1px solid #30363d; }
-        .mn-info { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 30px; max-width: 500px; margin: 0 auto; }
-        .mn-info h3 { color: var(--primary); margin-bottom: 20px; text-align: center; text-transform: uppercase; letter-spacing: 2px; }
-        .mn-info ul { list-style: none; }
-        .mn-info li { padding: 12px 0; border-bottom: 1px solid #21262d; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; }
-        .mn-info li:last-child { border-bottom: none; }
-        .mn-info li strong { color: white; margin-right: 6px; }
-        .mn-reward-box { background: rgba(0, 212, 255, 0.08); border: 1px solid rgba(0, 212, 255, 0.2); border-radius: 8px; padding: 22px; text-align: center; margin-top: 25px; }
-        .mn-reward-box p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
-        .mn-reward-box div { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; color: var(--primary); letter-spacing: 2px; }
-        
-        .roadmap-section { background: linear-gradient(180deg, var(--darker) 0%, var(--dark) 100%); }
-        .roadmap-timeline { max-width: 700px; margin: 0 auto; }
-        .roadmap-item { display: flex; gap: 20px; margin-bottom: 30px; }
-        .roadmap-marker { width: 45px; height: 45px; border-radius: 8px; background: var(--card-bg); border: 2px solid var(--card-border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
-        .roadmap-item.completed .roadmap-marker { border-color: var(--accent); background: rgba(0, 255, 136, 0.1); }
-        .roadmap-item.current .roadmap-marker { border-color: var(--primary); animation: pulse-glow 2s infinite; }
-        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.3); } 50% { box-shadow: 0 0 15px 4px rgba(0, 212, 255, 0.2); } }
-        .roadmap-content { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 22px; flex-grow: 1; }
-        .roadmap-content h3 { color: white; font-size: 0.95rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
-        .roadmap-content ul { list-style: none; }
-        .roadmap-content li { padding: 5px 0; color: var(--text-muted); font-size: 0.85rem; display: flex; align-items: center; gap: 6px; }
-        .roadmap-content li::before { content: '›'; color: var(--primary); font-size: 1.2rem; }
+        .pool-section { background: var(--darker); border-top: 1px solid #30363d; }
+        .pool-info { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 30px; max-width: 600px; margin: 0 auto; text-align: center; }
+        .pool-info h3 { color: var(--primary); margin-bottom: 20px; text-align: center; text-transform: uppercase; letter-spacing: 2px; }
+        .code-block { background: rgba(0, 0, 0, 0.3); border-radius: 8px; padding: 20px; text-align: left; margin: 15px 0; font-family: 'Courier New', monospace; font-size: 0.85rem; color: var(--accent); overflow-x: auto; }
+        .pool-info ul { list-style: none; text-align: left; margin-top: 20px; }
+        .pool-info li { padding: 10px 0; border-bottom: 1px solid #21262d; display: flex; align-items: center; gap: 10px; font-size: 0.9rem; }
+        .pool-info li:last-child { border-bottom: none; }
+        .pool-info li strong { color: white; margin-right: 6px; }
         
         .download-section { background: linear-gradient(135deg, var(--primary) 0%, #006688 100%); }
         .download-section h2 { color: white; }
@@ -129,6 +121,7 @@
         .download-icon { font-size: 2.5rem; margin-bottom: 12px; }
         .download-card h3 { color: white; margin-bottom: 6px; font-size: 1rem; }
         .download-status { display: inline-block; background: rgba(0, 0, 0, 0.2); padding: 5px 12px; border-radius: 15px; font-size: 0.7rem; color: #cceeff; margin: 10px 0; text-transform: uppercase; letter-spacing: 1px; }
+        .download-status.ready { background: rgba(0, 255, 136, 0.2); color: var(--accent); }
         
         .cli-section { text-align: center; margin-top: 40px; padding-top: 35px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
         .cli-section h3 { color: white; margin-bottom: 12px; }
@@ -168,11 +161,8 @@
         <div class="logo"><img src="assets/cat.svg" class="logo-cat" alt="LassieCat Logo">LASSIECAT</div>
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#coinomics">Coinomics</a></li>
+            <li><a href="#specs">Specs</a></li>
             <li><a href="#mining">Mining</a></li>
-            <li><a href="#masternodes">Masternodes</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#roadmap">Roadmap</a></li>
             <li><a href="#download">Download</a></li>
             <li><a href="#community">Community</a></li>
         </ul>
@@ -187,10 +177,10 @@
         <img src="assets/cat.svg" class="hero-cat" alt="LassieCat Mascot">
         <h1>LASSIE<span>CAT</span></h1>
         <h2>LASY</h2>
-        <p>KawPoW GPU mining with masternode rewards. Fair launch. Fixed supply. Built to last.</p>
+        <p>Ethash cryptocurrency for GPU mining. Fair launch. Fixed supply. T-Rex compatible.</p>
         <div>
             <a href="#download" class="btn btn-primary">Get Wallet</a>
-            <a href="#coinomics" class="btn btn-secondary">Learn More</a>
+            <a href="#specs" class="btn btn-secondary">Learn More</a>
         </div>
     </section>
     
@@ -205,55 +195,78 @@
             <div class="stat-card">
                 <div class="stat-icon">⛏</div>
                 <h3>Algorithm</h3>
-                <div class="stat-value">KAWPOW</div>
+                <div class="stat-value">ETHASH</div>
                 <div class="stat-label">GPU Mining</div>
             </div>
             <div class="stat-card">
                 <div class="stat-icon">◉</div>
                 <h3>Block Time</h3>
-                <div class="stat-value">1 MINUTE</div>
-                <div class="stat-label">Fast</div>
+                <div class="stat-value">~15 SEC</div>
+                <div class="stat-label">Ethash Style</div>
             </div>
             <div class="stat-card">
                 <div class="stat-icon">◆</div>
                 <h3>Block Reward</h3>
-                <div class="stat-value">5,000 LASY</div>
+                <div class="stat-value">5 LASY</div>
                 <div class="stat-label">Per Block</div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="specs" class="chain-section">
+        <h2>CHAIN SPECS</h2>
+        <p class="section-subtitle">LassieCat network parameters</p>
+        <div class="chain-grid">
+            <div class="chain-card">
+                <div class="chain-icon">◉</div>
+                <h3>Chain ID</h3>
+                <p>2026</p>
+                <div class="detail">Unique network identifier</div>
+            </div>
+            <div class="chain-card">
+                <div class="chain-icon">⛓</div>
+                <h3>Consensus</h3>
+                <p>Proof of Work</p>
+                <div class="detail">Ethash algorithm</div>
+            </div>
+            <div class="chain-card">
+                <div class="chain-icon">💾</div>
+                <h3>RPC Port</h3>
+                <p>8545</p>
+                <div class="detail">JSON-RPC endpoint</div>
+            </div>
+            <div class="chain-card">
+                <div class="chain-icon">🔗</div>
+                <h3>P2P Port</h3>
+                <p>30303</p>
+                <div class="detail">Node communication</div>
             </div>
         </div>
     </section>
     
     <section id="coinomics" class="coinomics-section">
         <h2>COINOMICS</h2>
-        <p class="section-subtitle">Block reward distribution</p>
+        <p class="section-subtitle">Token economics</p>
         <div class="reward-grid">
-            <div class="reward-card masternodes">
-                <div class="reward-icon">◉</div>
-                <h3>MASTERNODES</h3>
-                <div class="reward-percent">50%</div>
-                <div class="reward-amount">2,500 LASY</div>
-                <p>Network validators and infrastructure</p>
-                <div class="collateral-badge">Collateral: 500,000 LASY</div>
-            </div>
             <div class="reward-card miners">
                 <div class="reward-icon">⛏</div>
                 <h3>MINERS</h3>
-                <div class="reward-percent">45%</div>
-                <div class="reward-amount">2,250 LASY</div>
-                <p>GPU mining rewards (KawPoW)</p>
+                <div class="reward-percent">100%</div>
+                <div class="reward-amount">5 LASY</div>
+                <p>GPU mining rewards (Ethash)</p>
             </div>
             <div class="reward-card dev">
                 <div class="reward-icon">◈</div>
                 <h3>DEV FEE</h3>
-                <div class="reward-percent">5%</div>
-                <div class="reward-amount">250 LASY</div>
-                <p>Development fund</p>
+                <div class="reward-percent">0%</div>
+                <div class="reward-amount">0 LASY</div>
+                <p>No developer allocation</p>
             </div>
         </div>
         <div class="supply-card">
             <h3>◆ Fixed Supply</h3>
             <p>21,000,000,000 LASY</p>
-            <div class="supply-note">No inflation. No halving. Ever.</div>
+            <div class="supply-note">No inflation. No premine. Pure PoW.</div>
         </div>
     </section>
     
@@ -263,49 +276,47 @@
         <div class="mining-cards">
             <div class="mining-card">
                 <div class="feature-icon">◈</div>
-                <h3>ASIC Resistant</h3>
-                <p>KawPoW ensures fair mining</p>
+                <h3>T-Rex Compatible</h3>
+                <p>Best miner for NVIDIA GPUs</p>
             </div>
             <div class="mining-card">
                 <div class="feature-icon">◉</div>
-                <h3>GPU Compatible</h3>
-                <p>NVIDIA and AMD support</p>
+                <h3>NVIDIA Optimized</h3>
+                <p>Excellent hashrate</p>
             </div>
             <div class="mining-card">
                 <div class="feature-icon">◆</div>
                 <h3>Fast Blocks</h3>
-                <p>1-minute block times</p>
+                <p>~15 second block times</p>
             </div>
             <div class="mining-card">
                 <div class="feature-icon">⛏</div>
-                <h3>Universal</h3>
-                <p>Mine from anywhere</p>
+                <h3>Solo or Pool</h3>
+                <p>Mine to your own node</p>
             </div>
         </div>
     </section>
     
-    <section id="masternodes" class="masternodes-section">
-        <h2>MASTERNODES</h2>
-        <p class="section-subtitle">Run a masternode and earn 50%</p>
-        <div class="mn-info">
-            <h3>Requirements</h3>
-            <ul>
-                <li><strong>Collateral:</strong> 500,000 LASY</li>
-                <li><strong>Server:</strong> 2GB RAM, 20GB SSD</li>
-                <li><strong>Network:</strong> Static IP required</li>
-                <li><strong>Uptime:</strong> 99% recommended</li>
-            </ul>
-            <div class="mn-reward-box">
-                <p>Daily Rewards per MN</p>
-                <div>~172,800 LASY</div>
-                <div style="color: var(--text-muted); font-size: 0.75rem; margin-top: 4px;">(1440 blocks/day × 2,500 LASY ÷ ~20 MNs)</div>
+    <section class="pool-section">
+        <h2>MINING POOL</h2>
+        <p class="section-subtitle">Connect your miners to LassieCat</p>
+        <div class="pool-info">
+            <h3>T-Rex Mining Command</h3>
+            <div class="code-block">
+t-rex -a ethash -o stratum+tcp://[POOL_IP]:2026 -u [YOUR_WALLET] -p x
             </div>
+            <ul>
+                <li><strong>Pool IP:</strong> 144.91.127.14</li>
+                <li><strong>Port:</strong> 2026</li>
+                <li><strong>Wallet:</strong> 0xd845B83A85194c9CB4D7269aEb05500511ed0cbC</li>
+                <li><strong>Worker:</strong> Add .worker_name after wallet address</li>
+            </ul>
         </div>
     </section>
     
     <section id="features" class="features-section">
         <h2>FEATURES</h2>
-        <p class="section-subtitle">Built on proven cryptocurrency technology</p>
+        <p class="section-subtitle">Built on proven Ethereum technology</p>
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">◈</div>
@@ -315,17 +326,17 @@
             <div class="feature-card">
                 <div class="feature-icon">◆</div>
                 <h3>Secure</h3>
-                <p>Proven PoW consensus.</p>
+                <p>Proven Ethash PoW consensus.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">◉</div>
                 <h3>Fast</h3>
-                <p>1-minute blocks, low fees.</p>
+                <p>~15s blocks, low fees.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">⛏</div>
                 <h3>Fair Launch</h3>
-                <p>No pre-mine. No ICO.</p>
+                <p>No premine. Pure PoW.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">◈</div>
@@ -340,57 +351,6 @@
         </div>
     </section>
     
-    <section id="roadmap" class="roadmap-section">
-        <h2>ROADMAP</h2>
-        <p class="section-subtitle">Development milestones</p>
-        <div class="roadmap-timeline">
-            <div class="roadmap-item completed">
-                <div class="roadmap-marker">✓</div>
-                <div class="roadmap-content">
-                    <h3>Phase 1: Foundation</h3>
-                    <ul>
-                        <li>Project concept and branding</li>
-                        <li>Website launch</li>
-                        <li>LassieCat fork and rebranding</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="roadmap-item current">
-                <div class="roadmap-marker">◉</div>
-                <div class="roadmap-content">
-                    <h3>Phase 2: Development</h3>
-                    <ul>
-                        <li>Build binaries</li>
-                        <li>Configure genesis</li>
-                        <li>Test network</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="roadmap-item">
-                <div class="roadmap-marker">○</div>
-                <div class="roadmap-content">
-                    <h3>Phase 3: Launch</h3>
-                    <ul>
-                        <li>Mainnet launch</li>
-                        <li>Exchange listings</li>
-                        <li>Mining pools</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="roadmap-item">
-                <div class="roadmap-marker">○</div>
-                <div class="roadmap-content">
-                    <h3>Phase 4: Growth</h3>
-                    <ul>
-                        <li>Mobile wallet</li>
-                        <li>Exchanges</li>
-                        <li>Community grow</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    
     <section id="download" class="download-section">
         <h2>DOWNLOAD</h2>
         <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Choose your platform</p>
@@ -398,30 +358,30 @@
             <div class="download-card">
                 <div class="download-icon">🍎</div>
                 <h3>macOS</h3>
-                <p>Desktop wallet</p>
-                <span class="download-status">Coming Soon</span>
+                <p>QT Wallet</p>
+                <span class="download-status">Building</span>
             </div>
             <div class="download-card">
                 <div class="download-icon">🪟</div>
                 <h3>Windows</h3>
-                <p>Desktop wallet</p>
-                <span class="download-status">Coming Soon</span>
+                <p>QT Wallet</p>
+                <span class="download-status">Building</span>
             </div>
             <div class="download-card">
                 <div class="download-icon">🐧</div>
                 <h3>Linux</h3>
-                <p>CLI + GUI</p>
-                <span class="download-status">Coming Soon</span>
+                <p>QT Wallet</p>
+                <span class="download-status">Building</span>
             </div>
             <div class="download-card">
-                <div class="download-icon">📱</div>
-                <h3>Mobile</h3>
-                <p>iOS + Android</p>
-                <span class="download-status">Phase 4</span>
+                <div class="download-icon">💻</div>
+                <h3>CLI Tools</h3>
+                <p>geth, puppeth, bootnode</p>
+                <span class="download-status ready">Ready</span>
             </div>
         </div>
         <div class="cli-section">
-            <h3>Command Line</h3>
+            <h3>Build from Source</h3>
             <code>git clone https://github.com/lassiecat/lassiecat</code>
         </div>
     </section>
@@ -457,22 +417,22 @@
         <div class="footer-content">
             <div class="footer-brand">
                 <div class="logo" style="color: white;"><img src="assets/cat.svg" class="logo-cat" style="background: rgba(255,255,255,0.1);" alt="LassieCat">LASSIECAT</div>
-                <p>LASY Coin - KawPoW cryptocurrency with masternode rewards.</p>
+                <p>LASY Coin - Ethash cryptocurrency for GPU mining.</p>
             </div>
             <div class="footer-links">
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#coinomics">Coinomics</a></li>
+                    <li><a href="#specs">Specs</a></li>
                     <li><a href="#mining">Mining</a></li>
-                    <li><a href="#masternodes">Masternodes</a></li>
+                    <li><a href="#download">Downloads</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h4>Resources</h4>
                 <ul>
                     <li><a href="https://github.com/lassiecat">GitHub</a></li>
-                    <li><a href="#download">Downloads</a></li            <li><a href="#roadmap">Roadmap</a></li>
+                    <li><a href="#download">Downloads</a></li>
                     <li><a href="#community">Community</a></li>
                 </ul>
             </div>
