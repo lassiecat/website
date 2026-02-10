@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐱 LassieCat (LASY) - Community-Driven Ethash Cryptocurrency</title>
+    <title>🐱 LassieCat Blake3 (LASY) - Fast GPU Mineable Cryptocurrency</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --lassie-green: #00ff88; --lassie-cyan: #00d4ff; --lassie-dark: #0a0a1a; --lassie-darker: #050510; --lassie-purple: #8b5cf6; }
+        :root { --lassie-green: #00ff88; --lassie-cyan: #00d4ff; --lassie-dark: #0a0a1a; --lassie-darker: #050510; --lassie-purple: #8b5cf6; --lassie-orange: #ff9500; }
         * { box-sizing: border-box; }
         body { font-family: 'Roboto', sans-serif; background: linear-gradient(135deg, var(--lassie-darker) 0%, var(--lassie-dark) 50%, #0a1525 100%); color: #e0e0e0; }
         .gradient-text { background: linear-gradient(90deg, var(--lassie-green), var(--lassie-cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -18,12 +18,13 @@
         .nav-link:hover, .nav-link.active { color: var(--lassie-cyan) !important; background: rgba(0, 212, 255, 0.1); }
         .btn-gradient { background: linear-gradient(135deg, var(--lassie-green), var(--lassie-cyan)); border: none; color: #000; font-weight: 600; padding: 12px 30px; border-radius: 8px; }
         .btn-gradient:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3); }
+        .btn-orange { background: linear-gradient(135deg, var(--lassie-orange), #ff6600); border: none; color: #fff; font-weight: 600; padding: 12px 30px; border-radius: 8px; }
+        .btn-orange:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255, 149, 0, 0.3); }
         .stat-value { font-family: 'Orbitron', monospace; font-size: 2.5rem; font-weight: 700; }
         .pulse-dot { width: 10px; height: 10px; background: var(--lassie-green); border-radius: 50%; animation: pulse 2s infinite; }
         @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.2); opacity: 0.7; } }
         .roadmap-item { background: linear-gradient(145deg, rgba(26, 26, 62, 0.6) 0%, rgba(15, 15, 42, 0.8) 100%); border-left: 4px solid var(--lassie-green); border-radius: 0 12px 12px 0; padding: 20px; margin-bottom: 15px; }
-        .external-link { color: var(--lassie-cyan); text-decoration: none; }
-        .external-link:hover { color: var(--lassie-green); }
+        .config-box { background: rgba(0,0,0,0.3); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 8px; padding: 15px; font-family: 'Monaco', monospace; font-size: 0.85rem; }
     </style>
 </head>
 <body>
@@ -32,18 +33,19 @@
             <a class="navbar-brand d-flex align-items-center" href="#">
                 <img src="cat.svg" alt="Logo" style="width:40px;height:40px;margin-right:10px;">
                 <span style="font-family:'Orbitron',monospace;font-weight:900;font-size:1.3rem;" class="gradient-text">LASSIECAT</span>
+                <span style="font-family:'Orbitron',monospace;font-weight:900;font-size:0.9rem;color:var(--lassie-orange);margin-left:8px;">BLAKE3</span>
             </a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#mining">Mining</a></li>
                     <li class="nav-item"><a class="nav-link" href="#specs">Specs</a></li>
                     <li class="nav-item"><a class="nav-link" href="#roadmap">Roadmap</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#community">Community</a></li>
                 </ul>
                 <div class="ms-3 d-flex gap-2">
-                    <a href="http://144.91.127.14:8889" target="_blank" class="btn btn-sm" style="background:rgba(0,212,255,0.2);border:1px solid rgba(0,212,255,0.3);color:var(--lassie-cyan);"><i class="fas fa-chart-line me-1"></i> Pool</a>
-                    <a href="http://144.91.127.14:8082/explorer.html" target="_blank" class="btn btn-sm" style="background:rgba(0,255,136,0.2);border:1px solid rgba(0,255,136,0.3);color:var(--lassie-green);"><i class="fas fa-search me-1"></i> Explorer</a>
+                    <a href="http://144.91.127.14/pool.html" target="_blank" class="btn btn-sm" style="background:rgba(255,149,0,0.2);border:1px solid rgba(255,149,0,0.3);color:var(--lassie-orange);"><i class="fas fa-hammer me-1"></i> Pool</a>
+                    <a href="http://144.91.127.14/explorer.html" target="_blank" class="btn btn-sm" style="background:rgba(99,102,241,0.2);border:1px solid rgba(99,102,241,0.3);color:#6366f1;"><i class="fas fa-search me-1"></i> Explorer</a>
                 </div>
             </div>
         </div>
@@ -51,22 +53,25 @@
 
     <section id="home" class="py-5 text-center" style="min-height: 70vh; display: flex; align-items: center;">
         <div class="container">
-            <div class="live-badge mb-4" style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,255,136,0.15);padding:8px 16px;border-radius:25px;font-size:0.85rem;color:var(--lassie-green);"><span class="pulse-dot"></span> LIVE NETWORK - BLOCK 850+</div>
+            <div class="live-badge mb-4" style="display:inline-flex;align-items:center;gap:8px;background:rgba(0,255,136,0.15);padding:8px 16px;border-radius:25px;font-size:0.85rem;color:var(--lassie-green);"><span class="pulse-dot"></span> LIVE NETWORK - BLOCK 1,247+</div>
             <img src="cat.svg" alt="LassieCat" style="width:150px;height:150px;margin:20px auto;display:block;">
-            <h1 style="font-family:'Orbitron',monospace;font-weight:900;font-size:4rem;" class="gradient-text mb-3">LASSIECAT</h1>
-            <h2 style="font-family:'Orbitron',monospace;font-size:2rem;color:#fff;margin-bottom:30px;">LASY</h2>
-            <p style="font-size:1.2rem;color:#a0a0a0;max-width:700px;margin:0 auto 30px;">Community-driven Ethash cryptocurrency with 0% dev fee. Fair launch, fast blocks, and a vibrant ecosystem.</p>
+            <h1 style="font-family:'Orbitron',monospace;font-weight:900;font-size:3.5rem;" class="gradient-text mb-3">LASSIECAT</h1>
+            <h2 style="font-family:'Orbitron',monospace;font-size:1.8rem;color:#fff;margin-bottom:15px;">LASY</h2>
+            <h3 style="font-size:1.2rem;color:var(--lassie-orange);margin-bottom:25px;">⚡ BLAKE3 ALGORITHM ⚡</h3>
+            <p style="font-size:1.1rem;color:#a0a0a0;max-width:700px;margin:0 auto 30px;">The fastest GPU-mineable cryptocurrency! Low difficulty, fast blocks, and 100% fair distribution. No premine, no dev fees, just pure mining.</p>
             <div class="d-flex justify-content-center gap-3 flex-wrap">
-                <a href="#features" class="btn btn-gradient"><i class="fas fa-rocket me-2"></i>Get Started</a>
-                <a href="#mining" class="btn btn-lg" style="background:transparent;border:2px solid var(--lassie-cyan);color:var(--lassie-cyan);border-radius:8px;"><i class="fas fa-hammer me-2"></i>Start Mining</a>
+                <a href="#mining" class="btn btn-orange"><i class="fas fa-hammer me-2"></i>Start Mining</a>
+                <a href="#features" class="btn btn-gradient"><i class="fas fa-rocket me-2"></i>Learn More</a>
             </div>
+            
             <div class="row mt-5 justify-content-center">
                 <div class="col-md-10">
                     <div style="background: linear-gradient(145deg, rgba(26, 26, 62, 0.8) 0%, rgba(15, 15, 42, 0.9) 100%); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 12px; padding: 30px;">
                         <div class="row text-center">
-                            <div class="col-4"><div class="stat-value gradient-text">21B</div><div style="color:#8a8a9a;font-size:0.85rem;">MAX SUPPLY</div></div>
-                            <div class="col-4"><div class="stat-value gradient-text">850+</div><div style="color:#8a8a9a;font-size:0.85rem;">BLOCKS MINED</div></div>
-                            <div class="col-4"><div class="stat-value gradient-text">0%</div><div style="color:#8a8a9a;font-size:0.85rem;">DEV FEE</div></div>
+                            <div class="col-3"><div class="stat-value gradient-text">21B</div><div style="color:#8a8a9a;font-size:0.85rem;">MAX SUPPLY</div></div>
+                            <div class="col-3"><div class="stat-value gradient-text">1,247+</div><div style="color:#8a8a9a;font-size:0.85rem;">BLOCKS MINED</div></div>
+                            <div class="col-3"><div class="stat-value gradient-text">~30s</div><div style="color:#8a8a9a;font-size:0.85rem;">BLOCK TIME</div></div>
+                            <div class="col-3"><div class="stat-value gradient-text">5,000</div><div style="color:#8a8a9a;font-size:0.85rem;">REWARD/BLOCK</div></div>
                         </div>
                     </div>
                 </div>
@@ -76,14 +81,84 @@
 
     <section id="features" class="py-5" style="background: rgba(10, 10, 26, 0.5);">
         <div class="container">
-            <h2 style="font-family:'Orbitron',monospace;font-size:2rem;color:white;text-align:center;margin-bottom:50px;"><span style="color:var(--lassie-cyan);">◆</span> KEY FEATURES</h2>
+            <h2 style="font-family:'Orbitron',monospace;font-size:2rem;color:white;text-align:center;margin-bottom:50px;"><span style="color:var(--lassie-cyan);">◆</span> WHY BLAKE3?</h2>
             <div class="row g-4">
-                <div class="col-md-4"><div class="feature-card text-center h-100"><i class="fas fa-coins" style="font-size:3rem;background:linear-gradient(135deg,var(--lassie-green),var(--lassie-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;"></i><h3 style="color:white;font-family:'Orbitron',monospace;">Fixed Supply</h3><p style="color:#8a8a9a;">21 Billion LASY. No inflation. No premine. Pure proof-of-work.</p></div></div>
-                <div class="col-md-4"><div class="feature-card text-center h-100"><i class="fas fa-microchip" style="font-size:3rem;background:linear-gradient(135deg,var(--lassie-green),var(--lassie-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;"></i><h3 style="color:white;font-family:'Orbitron',monospace;">GPU Mining</h3><p style="color:#8a8a9a;">Ethash algorithm. T-Rex, PhoenixMiner, GMiner supported.</p></div></div>
-                <div class="col-md-4"><div class="feature-card text-center h-100"><i class="fas fa-bolt" style="font-size:3rem;background:linear-gradient(135deg,var(--lassie-green),var(--lassie-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;"></i><h3 style="color:white;font-family:'Orbitron',monospace;">Fast Blocks</h3><p style="color:#8a8a9a;">~15 second block times. Quick transactions.</p></div></div>
-                <div class="col-md-4"><div class="feature-card text-center h-100"><i class="fas fa-hand-holding-heart" style="font-size:3rem;background:linear-gradient(135deg,var(--lassie-green),var(--lassie-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;"></i><h3 style="color:white;font-family:'Orbitron',monospace;">0% Dev Fee</h3><p style="color:#8a8a9a;">All rewards to miners. 100% community driven.</p></div></div>
-                <div class="col-md-4"><div class="feature-card text-center h-100"><i class="fas fa-globe" style="font-size:3rem;background:linear-gradient(135deg,var(--lassie-green),var(--lassie-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;"></i><h3 style="color:white;font-family:'Orbitron',monospace;">Decentralized</h3><p style="color:#8a8a9a;">Community-owned. Open source. Transparent.</p></div></div>
-                <div class="col-md-4"><div class="feature-card text-center h-100"><i class="fas fa-shield-alt" style="font-size:3rem;background:linear-gradient(135deg,var(--lassie-green),var(--lassie-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;"></i><h3 style="color:white;font-family:'Orbitron',monospace;">Secure</h3><p style="color:#8a8a9a;">Proven Ethash PoW consensus. Battle-tested.</p></div></div>
+                <div class="col-md-4"><div class="feature-card text-center h-100"><i class="fas fa-bolt" style="font-size:3rem;background:linear-gradient(135deg,var(--lassie-green),var(--lassie-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;"></i><h3 style="color:white;font-family:'Orbitron',monospace;">🚀 Ultra Fast</h3><p style="color:#8a8a9a;">Blake3 is 2-3x faster than previous algorithms. No DAG generation needed!</p></div></div>
+                <div class="col-md-4"><div class="feature-card text-center h-100"><i class="fas fa-microchip" style="font-size:3rem;background:linear-gradient(135deg,var(--lassie-green),var(--lassie-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;"></i><h3 style="color:white;font-family:'Orbitron',monospace;">💻 GPU Friendly</h3><p style="color:#8a8a9a;">Works on ANY GPU - NVIDIA, AMD, even older cards. No 4GB DAG limit!</p></div></div>
+                <div class="col-md-4"><div class="feature-card text-center h-100"><i class="fas fa-shield-alt" style="font-size:3rem;background:linear-gradient(135deg,var(--lassie-green),var(--lassie-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;"></i><h3 style="color:white;font-family:'Orbitron',monospace;">🔐 Secure</h3><p style="color:#8a8a9a;">Battle-tested cryptographic hash function. Proven security.</p></div></div>
+                <div class="col-md-4"><div class="feature-card text-center h-100"><i class="fas fa-coins" style="font-size:3rem;background:linear-gradient(135deg,var(--lassie-green),var(--lassie-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;"></i><h3 style="color:white;font-family:'Orbitron',monospace;">💰 Low Difficulty</h3><p style="color:#8a8a9a;">Easy to start mining! Even CPU mining works. Great for beginners.</p></div></div>
+                <div class="col-md-4"><div class="feature-card text-center h-100"><i class="fas fa-globe" style="font-size:3rem;background:linear-gradient(135deg,var(--lassie-green),var(--lassie-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;"></i><h3 style="color:white;font-family:'Orbitron',monospace;">🌐 Decentralized</h3><p style="color:#8a8a9a;">Community-driven. Open source. No premine, no dev fees.</p></div></div>
+                <div class="col-md-4"><div class="feature-card text-center h-100"><i class="fas fa-hand-holding-heart" style="font-size:3rem;background:linear-gradient(135deg,var(--lassie-green),var(--lassie-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;"></i><h3 style="color:white;font-family:'Orbitron',monospace;">🤝 100% Fair</h3><p style="color:#8a8a9a;">All rewards to miners. 0% dev fee. Pure proof-of-work.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mining" class="py-5" style="background: rgba(255, 149, 0, 0.05);">
+        <div class="container">
+            <h2 style="font-family:'Orbitron',monospace;font-size:2rem;color:var(--lassie-orange);text-align:center;margin-bottom:50px;"><span style="color:var(--lassie-orange);">◆</span> START MINING</h2>
+            
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8">
+                    <div style="background: linear-gradient(145deg, rgba(26, 26, 62, 0.8) 0%, rgba(15, 15, 42, 0.9) 100%); border: 1px solid rgba(255, 149, 0, 0.3); border-radius: 12px; padding: 30px;">
+                        <h3 style="color:var(--lassie-orange);margin-bottom:20px;">🎯 Pool Connection</h3>
+                        <div class="config-box">
+                            <div style="color:#fff;margin-bottom:10px;"><strong>STRATUM:</strong> stratum+tcp://144.91.127.14:3333</div>
+                            <div style="color:#888;font-size:0.8rem;">Use your LASY wallet address as username</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card text-center h-100" style="border-color: rgba(255, 149, 0, 0.3);">
+                        <i class="fas fa-download" style="font-size:2.5rem;background:linear-gradient(135deg,var(--lassie-orange),#ff6600);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;"></i>
+                        <h3 style="color:white;font-family:'Orbitron',monospace;">1. Download Miner</h3>
+                        <p style="color:#8a8a9a;font-size:0.95rem;">T-Rex (NVIDIA) or Gminer. Both support Blake3.</p>
+                        <a href="https://github.com/trexminer/T-Rex/releases" target="_blank" class="btn btn-sm btn-orange mt-3">T-Rex Releases</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center h-100" style="border-color: rgba(255, 149, 0, 0.3);">
+                        <i class="fas fa-cog" style="font-size:2.5rem;background:linear-gradient(135deg,var(--lassie-orange),#ff6600);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;"></i>
+                        <h3 style="color:white;font-family:'Orbitron',monospace;">2. Configure</h3>
+                        <p style="color:#8a8a9a;font-size:0.95rem;">Use our stratum address and your wallet.</p>
+                        <div class="config-box mt-3 text-start">
+                            <div style="color:#00ff88;">t-rex -a blake3 -o stratum+tcp://</div>
+                            <div style="color:#fff;">144.91.127.14:3333 -u YOUR_WALLET</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center h-100" style="border-color: rgba(255, 149, 0, 0.3);">
+                        <i class="fas fa-play" style="font-size:2.5rem;background:linear-gradient(135deg,var(--lassie-orange),#ff6600);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;"></i>
+                        <h3 style="color:white;font-family:'Orbitron',monospace;">3. Start Mining</h3>
+                        <p style="color:#8a8a9a;font-size:0.95rem;">Earn LASY coins! Check pool for stats.</p>
+                        <a href="http://144.91.127.14/pool.html" target="_blank" class="btn btn-sm btn-orange mt-3">View Pool</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-10">
+                    <div style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 25px;">
+                        <h4 style="color:#fff;margin-bottom:15px;"><i class="fas fa-code me-2"></i>Example Commands</h4>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div style="color:var(--lassie-orange);font-weight:bold;margin-bottom:8px;">T-Rex (Recommended)</div>
+                                <div class="config-box">
+                                    t-rex -a blake3 -o stratum+tcp://144.91.127.14:3333 -u YOUR_LASY_WALLET -p x
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div style="color:var(--lassie-orange);font-weight:bold;margin-bottom:8px;">Gminer</div>
+                                <div class="config-box">
+                                    gminer --algo blake3 --server 144.91.127.14 --port 3333 --user YOUR_WALLET --pass x
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -95,34 +170,36 @@
                 <div class="col-lg-8">
                     <div style="background: linear-gradient(145deg, rgba(26, 26, 62, 0.8) 0%, rgba(15, 15, 42, 0.9) 100%); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 12px; padding: 30px;">
                         <div class="row text-center">
-                            <div class="col-4 mb-4"><i class="fas fa-link" style="color:var(--lassie-cyan);font-size:1.5rem;margin-bottom:10px;"></i><div style="font-family:'Orbitron',monospace;font-size:1.8rem;color:white;">2026</div><div style="color:#8a8a9a;font-size:0.8rem;">CHAIN ID</div></div>
-                            <div class="col-4 mb-4"><i class="fas fa-microchip" style="color:var(--lassie-green);font-size:1.5rem;margin-bottom:10px;"></i><div style="font-family:'Orbitron',monospace;font-size:1.8rem;color:white;">ETHASH</div><div style="color:#8a8a9a;font-size:0.8rem;">ALGORITHM</div></div>
-                            <div class="col-4 mb-4"><i class="fas fa-stopwatch" style="color:var(--lassie-purple);font-size:1.5rem;margin-bottom:10px;"></i><div style="font-family:'Orbitron',monospace;font-size:1.8rem;color:white;">~15s</div><div style="color:#8a8a9a;font-size:0.8rem;">BLOCK TIME</div></div>
-                            <div class="col-4 mb-4"><i class="fas fa-gift" style="color:var(--lassie-cyan);font-size:1.5rem;margin-bottom:10px;"></i><div style="font-family:'Orbitron',monospace;font-size:1.8rem;color:white;">5 LASY</div><div style="color:#8a8a9a;font-size:0.8rem;">BLOCK REWARD</div></div>
-                            <div class="col-4 mb-4"><i class="fas fa-coins" style="color:var(--lassie-green);font-size:1.5rem;margin-bottom:10px;"></i><div style="font-family:'Orbitron',monospace;font-size:1.8rem;color:white;">21B</div><div style="color:#8a8a9a;font-size:0.8rem;">MAX SUPPLY</div></div>
-                            <div class="col-4 mb-4"><i class="fas fa-server" style="color:var(--lassie-purple);font-size:1.5rem;margin-bottom:10px;"></i><div style="font-family:'Orbitron',monospace;font-size:1.8rem;color:white;">8545</div><div style="color:#8a8a9a;font-size:0.8rem;">RPC PORT</div></div>
+                            <div class="col-3 mb-4"><i class="fas fa-link" style="color:var(--lassie-cyan);font-size:1.5rem;margin-bottom:10px;"></i><div style="font-family:'Orbitron',monospace;font-size:1.8rem;color:white;">2027</div><div style="color:#8a8a9a;font-size:0.8rem;">CHAIN ID</div></div>
+                            <div class="col-3 mb-4"><i class="fas fa-microchip" style="color:var(--lassie-green);font-size:1.5rem;margin-bottom:10px;"></i><div style="font-family:'Orbitron',monospace;font-size:1.8rem;color:white;">BLAKE3</div><div style="color:#8a8a9a;font-size:0.8rem;">ALGORITHM</div></div>
+                            <div class="col-3 mb-4"><i class="fas fa-stopwatch" style="color:var(--lassie-orange);font-size:1.5rem;margin-bottom:10px;"></i><div style="font-family:'Orbitron',monospace;font-size:1.8rem;color:white;">~30s</div><div style="color:#8a8a9a;font-size:0.8rem;">BLOCK TIME</div></div>
+                            <div class="col-3 mb-4"><i class="fas fa-coins" style="color:#8b5cf6;font-size:1.5rem;margin-bottom:10px;"></i><div style="font-family:'Orbitron',monospace;font-size:1.8rem;color:white;">5,000</div><div style="color:#8a8a9a;font-size:0.8rem;">REWARD</div></div>
+                            <div class="col-3 mb-4"><i class="fas fa-database" style="color:#00ff88;font-size:1.5rem;margin-bottom:10px;"></i><div style="font-family:'Orbitron',monospace;font-size:1.8rem;color:white;">0 MB</div><div style="color:#8a8a9a;font-size:0.8rem;">DAG SIZE</div></div>
+                            <div class="col-3 mb-4"><i class="fas fa-tachometer-alt" style="color:#00d4ff;font-size:1.5rem;margin-bottom:10px;"></i><div style="font-family:'Orbitron',monospace;font-size:1.8rem;color:white;">ANY</div><div style="color:#8a8a9a;font-size:0.8rem;">GPU TYPE</div></div>
+                            <div class="col-3 mb-4"><i class="fas fa-globe" style="color:#ff9500;font-size:1.5rem;margin-bottom:10px;"></i><div style="font-family:'Orbitron',monospace;font-size:1.8rem;color:white;">3333</div><div style="color:#8a8a9a;font-size:0.8rem;">STRATUM PORT</div></div>
+                            <div class="col-3 mb-4"><i class="fas fa-server" style="color:#8b5cf6;font-size:1.5rem;margin-bottom:10px;"></i><div style="font-family:'Orbitron',monospace;font-size:1.8rem;color:white;">21B</div><div style="color:#8a8a9a;font-size:0.8rem;">MAX SUPPLY</div></div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="mining" class="py-5" style="background: rgba(10, 10, 26, 0.5);">
-        <div class="container">
-            <h2 style="font-family:'Orbitron',monospace;font-size:2rem;color:white;text-align:center;margin-bottom:50px;"><span style="color:var(--lassie-green);">◆</span> START MINING</h2>
-            <div class="row justify-content-center">
+            
+            <div class="row justify-content-center mt-5">
                 <div class="col-lg-10">
-                    <div style="background: linear-gradient(145deg, rgba(26, 26, 62, 0.8) 0%, rgba(15, 15, 42, 0.9) 100%); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 12px; padding: 30px; box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);">
-                        <h3 style="color:var(--lassie-cyan);font-family:'Orbitron',monospace;margin-bottom:20px;"><i class="fas fa-network-wired me-2"></i>Pool Connection</h3>
-                        <div style="background:rgba(0,0,0,0.3);border-radius:8px;padding:20px;margin-bottom:20px;">
-                            <code style="color:var(--lassie-green);font-size:1.1rem;">t-rex -a ethash -o stratum://144.91.127.14:2026 -u YOUR_WALLET -p x --nofee</code>
-                        </div>
+                    <div style="background: linear-gradient(145deg, rgba(26, 26, 62, 0.6) 0%, rgba(15, 15, 42, 0.8) 100%); border-left: 4px solid var(--lassie-green); border-radius: 0 12px 12px 0; padding: 25px;">
+                        <h4 style="color:white;margin-bottom:15px;"><i class="fas fa-link me-2"></i>Network Connections</h4>
                         <div class="row">
-                            <div class="col-md-3 mb-3"><div style="background:rgba(0,212,255,0.1);padding:15px;border-radius:8px;text-align:center;"><i class="fas fa-server" style="color:var(--lassie-cyan);"></i><div style="color:white;font-weight:600;">144.91.127.14</div><div style="color:#8a8a9a;font-size:0.8rem;">POOL IP</div></div></div>
-                            <div class="col-md-3 mb-3"><div style="background:rgba(0,255,136,0.1);padding:15px;border-radius:8px;text-align:center;"><i class="fas fa-door-open" style="color:var(--lassie-green);"></i><div style="color:white;font-weight:600;">2026</div><div style="color:#8a8a9a;font-size:0.8rem;">PORT</div></div></div>
-                            <div class="col-md-3 mb-3"><div style="background:rgba(139,92,246,0.1);padding:15px;border-radius:8px;text-align:center;"><i class="fas fa-id-card" style="color:var(--lassie-purple);"></i><div style="color:white;font-weight:600;">2026</div><div style="color:#8a8a9a;font-size:0.8rem;">NETWORK ID</div></div></div>
-                            <div class="col-md-3 mb-3"><div style="background:rgba(0,212,255,0.1);padding:15px;border-radius:8px;text-align:center;"><i class="fas fa-percent" style="color:var(--lassie-cyan);"></i><div style="color:white;font-weight:600;">0%</div><div style="color:#8a8a9a;font-size:0.8rem;">FEE</div></div></div>
+                            <div class="col-md-6">
+                                <div class="config-box">
+                                    <div style="color:#888;margin-bottom:5px;">STRATUM</div>
+                                    <div style="color:#00ff88;">stratum+tcp://144.91.127.14:3333</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="config-box">
+                                    <div style="color:#888;margin-bottom:5px;">WEBSITE</div>
+                                    <div style="color:#00d4ff;">http://144.91.127.14</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -130,48 +207,48 @@
         </div>
     </section>
 
-    <section id="roadmap" class="py-5">
+    <section id="roadmap" class="py-5" style="background: rgba(10, 10, 26, 0.5);">
         <div class="container">
-            <h2 style="font-family:'Orbitron',monospace;font-size:2rem;color:white;text-align:center;margin-bottom:50px;"><span style="color:var(--lassie-cyan);">◆</span> ROADMAP</h2>
+            <h2 style="font-family:'Orbitron',monospace;font-size:2rem;color:white;text-align:center;margin-bottom:50px;"><span style="color:var(--lassie-purple);">◆</span> ROADMAP</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div style="background: linear-gradient(145deg, rgba(26, 26, 62, 0.6) 0%, rgba(15, 15, 42, 0.8) 100%); border-left: 4px solid var(--lassie-cyan); border-radius: 0 12px 12px 0; padding: 20px; margin-bottom: 15px;">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;"><h4 style="color:var(--lassie-cyan);font-family:'Orbitron',monospace;margin:0;">PHASE 1 - FOUNDATION</h4><span style="background:rgba(0,212,255,0.2);padding:4px 12px;border-radius:15px;font-size:0.75rem;color:var(--lassie-cyan);">COMPLETED</span></div>
-                        <ul style="color:#a0a0a0;margin:0;padding-left:20px;"><li>Network launch and genesis block</li><li>Geth node deployment</li><li>GPU mining pool</li><li>Block explorer</li></ul>
+                    <div class="roadmap-item">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                            <h4 style="color:white;">🚀 Launch Phase</h4>
+                            <span style="background:rgba(0,255,136,0.2);color:var(--lassie-green);padding:4px 12px;border-radius:20px;font-size:0.8rem;">COMPLETED</span>
+                        </div>
+                        <p style="color:#8a8a9a;font-size:0.95rem;">Genesis block, basic network, mining pool setup, and website deployment.</p>
                     </div>
-                    <div style="background: linear-gradient(145deg, rgba(139, 92, 246, 0.1) 0%, rgba(15, 15, 42, 0.8) 100%); border-left: 4px solid var(--lassie-purple); border-radius: 0 12px 12px 0; padding: 20px; margin-bottom: 15px;">
-                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;"><h4 style="color:var(--lassie-purple);font-family:'Orbitron',monospace;margin:0;">PHASE 2 - GROWTH</h4><span style="background:rgba(139,92,246,0.2);padding:4px 12px;border-radius:15px;font-size:0.75rem;color:var(--lassie-purple);">IN PROGRESS</span></div>
-                        <ul style="color:#a0a0a0;margin:0;padding-left:20px;"><li>Community outreach</li><li>Exchange listings</li><li>Web wallet</li><li>Mobile wallet</li></ul>
+                    <div class="roadmap-item">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                            <h4 style="color:white;">🌱 Growth Phase</h4>
+                            <span style="background:rgba(255,149,0,0.2);color:var(--lassie-orange);padding:4px 12px;border-radius:20px;font-size:0.8rem;">IN PROGRESS</span>
+                        </div>
+                        <p style="color:#8a8a9a;font-size:0.95rem;">More miners, exchange listings (DEX first), wallet development, and community building.</p>
                     </div>
-                    <div style="background: linear-gradient(145deg, rgba(26, 26, 62, 0.6) 0%, rgba(15, 15, 42, 0.8) 100%); border-left: 4px solid var(--lassie-green); border-radius: 0 12px 12px 0; padding: 20px;">
-                        <div style="display:flex;justify:space-between;align-items:center;margin-bottom:10px;"><h4 style="color:white;font-family:'Orbitron',monospace;margin:0;">PHASE 3 - EXPANSION</h4><span style="background:rgba(255,255,255,0.1);padding:4px 12px;border-radius:15px;font-size:0.75rem;color:#a0a0a0;">PLANNED</span></div>
-                        <ul style="color:#a0a0a0;margin:0;padding-left:20px;"><li>GhostRider algorithm (Chain 2027)</li><li>Masternode system</li><li>Cross-chain bridges</li><li>DeFi integrations</li></ul>
+                    <div class="roadmap-item" style="border-left-color: var(--lassie-purple);">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                            <h4 style="color:white;">🚀 V2: KawPoW Upgrade</h4>
+                            <span style="background:rgba(139,92,246,0.2);color:var(--lassie-purple);padding:4px 12px;border-radius:20px;font-size:0.8rem;">PLANNED</span>
+                        </div>
+                        <p style="color:#8a8a9a;font-size:0.95rem;">Upgrade to ASIC-resistant KawPoW algorithm for long-term security and decentralization.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="community" class="py-5" style="background: rgba(10, 10, 26, 0.5);">
+    <footer class="py-5" style="background: rgba(5, 5, 16, 0.8);">
         <div class="container text-center">
-            <h2 style="font-family:'Orbitron',monospace;font-size:2rem;color:white;margin-bottom:20px;"><span style="color:var(--lassie-green);">◆</span> COMMUNITY DRIVEN</h2>
-            <p style="color:#a0a0a0;max-width:600px;margin:0 auto 40px;font-size:1.1rem;">LassieCat is built by the community, for the community. All decisions are made transparently. 100% of rewards go to participants.</p>
-            <div class="row justify-content-center g-4">
-                <div class="col-md-3"><a href="#" class="feature-card text-center d-block text-decoration-none"><i class="fab fa-github" style="font-size:2.5rem;background:linear-gradient(135deg,var(--lassie-green),var(--lassie-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:15px;"></i><h5 style="color:white;">GitHub</h5><p style="color:#8a8a9a;font-size:0.85rem;">Source Code</p></a></div>
-                <div class="col-md-3"><a href="#" class="feature-card text-center d-block text-decoration-none"><i class="fab fa-telegram" style="font-size:2.5rem;background:linear-gradient(135deg,var(--lassie-green),var(--lassie-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:15px;"></i><h5 style="color:white;">Telegram</h5><p style="color:#8a8a9a;font-size:0.85rem;">Community</p></a></div>
-                <div class="col-md-3"><a href="#" class="feature-card text-center d-block text-decoration-none"><i class="fab fa-twitter" style="font-size:2.5rem;background:linear-gradient(135deg,var(--lassie-green),var(--lassie-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:15px;"></i><h5 style="color:white;">Twitter/X</h5><p style="color:#8a8a9a;font-size:0.85rem;">Updates</p></a></div>
+            <img src="cat.svg" alt="LassieCat" style="width:60px;height:60px;margin-bottom:20px;">
+            <h3 style="font-family:'Orbitron',monospace;color:white;margin-bottom:20px;">LASSIECAT <span style="color:var(--lassie-orange);">BLAKE3</span></h3>
+            <p style="color:#666;max-width:600px;margin:0 auto 20px;">The fastest GPU-mineable cryptocurrency. Community-driven, fair launch, and built for everyone.</p>
+            <div class="d-flex justify-content-center gap-3 mb-4">
+                <a href="http://144.91.127.14/" target="_blank" style="color:var(--lassie-cyan);"><i class="fas fa-globe fa-lg"></i></a>
+                <a href="http://144.91.127.14/pool.html" target="_blank" style="color:var(--lassie-orange);"><i class="fas fa-hammer fa-lg"></i></a>
+                <a href="http://144.91.127.14/explorer.html" target="_blank" style="color:#8b5cf6;"><i class="fas fa-search fa-lg"></i></a>
             </div>
-        </div>
-    </section>
-
-    <footer style="background: rgba(5, 5, 16, 0.9); border-top: 1px solid rgba(0, 212, 255, 0.15); padding: 40px 20px; text-align: center;">
-        <div style="max-width:1200px;margin:0 auto;">
-            <div style="font-family:'Orbitron',monospace;color:white;font-size:1.2rem;margin-bottom:20px;"><i class="fas fa-cat" style="color:var(--lassie-green);margin-right:8px;"></i>LASSIECAT EXPLORER</div>
-            <div style="color:#6a6a7a;font-size:0.85rem;margin-bottom:20px;">© 2026 LassieCat • 0% Dev Fee • Community Driven</div>
-            <div class="d-flex justify-content-center gap-4">
-                <a href="http://144.91.127.14:8889" class="external-link"><i class="fas fa-chart-line me-1"></i> Pool</a>
-                <a href="http://144.91.127.14:8082/explorer.html" class="external-link"><i class="fas fa-search me-1"></i> Explorer</a>
-            </div>
+            <p style="color:#555;font-size:0.85rem;">© 2026 LassieCat. Built with ❤️ for the mining community.</p>
         </div>
     </footer>
 </body>
